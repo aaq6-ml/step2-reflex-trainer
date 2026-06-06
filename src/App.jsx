@@ -4,722 +4,722 @@ const questionBank = [
   // CARDIOLOGY
   {
     topic: "Cardiology",
-    vignette: "58M with HTN has dyspnea, orthopnea, bibasilar crackles, leg edema, and elevated BNP.",
-    answers: ["Acute MI", "Acute decompensated heart failure", "Pulmonary embolism", "Pneumonia"],
-    correct: 1,
-    explanation: "Orthopnea + crackles + edema + elevated BNP = acute decompensated heart failure."
+    vignette: "68M with long-standing hypertension has progressive exertional dyspnea, chest pressure, and one episode of syncope. Exam shows a harsh systolic murmur radiating toward the neck.",
+    answers: ["Aortic stenosis", "Hypertrophic cardiomyopathy", "Mitral regurgitation", "Pulmonary embolism"],
+    correct: 0,
+    explanation: "This presentation fits aortic stenosis: older patient with exertional dyspnea, angina/syncope, and a neck-radiating systolic murmur."
   },
   {
     topic: "Cardiology",
-    vignette: "62F has chest pressure at rest. Troponin is elevated and ECG shows new T-wave inversions.",
-    answers: ["Stable angina", "NSTEMI", "Aortic stenosis", "Pericarditis"],
+    vignette: "24M has repeated near-syncope during basketball practice. His father died suddenly at a young age. Exam shows a systolic murmur that becomes louder when he stands.",
+    answers: ["Aortic stenosis", "Hypertrophic cardiomyopathy", "Mitral valve prolapse", "Dilated cardiomyopathy"],
     correct: 1,
-    explanation: "Chest pain at rest + elevated troponin = NSTEMI."
+    explanation: "Young athlete with exertional syncope, family history of sudden death, and murmur louder with decreased preload fits hypertrophic cardiomyopathy."
   },
   {
     topic: "Cardiology",
-    vignette: "45M has sudden tearing chest pain radiating to the back with unequal arm blood pressures.",
+    vignette: "58M with prior MI has worsening shortness of breath, orthopnea, leg swelling, bibasilar crackles, and an S3 gallop.",
+    answers: ["Acute decompensated heart failure", "COPD exacerbation", "Pneumonia", "Pulmonary embolism"],
+    correct: 0,
+    explanation: "This presentation fits decompensated heart failure: orthopnea, edema, crackles, and S3 in a patient with cardiac disease."
+  },
+  {
+    topic: "Cardiology",
+    vignette: "63F has chest pressure that now occurs at rest and lasts longer than before. ECG shows new ischemic changes, but there is no ST elevation.",
+    answers: ["Stable angina", "Acute coronary syndrome", "Pericarditis", "Aortic dissection"],
+    correct: 1,
+    explanation: "Chest pain at rest with new ischemic ECG changes fits acute coronary syndrome, even without ST elevation."
+  },
+  {
+    topic: "Cardiology",
+    vignette: "51M has severe substernal chest pain, diaphoresis, and nausea. ECG shows ST elevation in II, III, and aVF.",
+    answers: ["Anterior MI", "Inferior MI", "Lateral MI", "Posterior MI"],
+    correct: 1,
+    explanation: "This presentation is an inferior MI: ischemic symptoms with ST elevation in II, III, and aVF."
+  },
+  {
+    topic: "Cardiology",
+    vignette: "45M has sudden severe chest pain radiating to his back. He is hypertensive, uncomfortable, and the blood pressure differs between arms.",
     answers: ["Acute MI", "Aortic dissection", "Pulmonary embolism", "Pericarditis"],
     correct: 1,
-    explanation: "Tearing pain to the back + pulse/BP differential = aortic dissection."
+    explanation: "Sudden severe chest pain radiating to the back with unequal arm pressures fits aortic dissection."
   },
   {
     topic: "Cardiology",
-    vignette: "38F has sharp pleuritic chest pain improved by leaning forward. ECG shows diffuse ST elevation.",
-    answers: ["Acute MI", "Pericarditis", "Aortic dissection", "Pulmonary embolism"],
-    correct: 1,
-    explanation: "Pleuritic positional chest pain + diffuse ST elevation = acute pericarditis."
+    vignette: "36F has sharp chest pain that worsens with lying down and improves when sitting forward. She recently had a viral illness.",
+    answers: ["Pericarditis", "Acute MI", "Pulmonary embolism", "GERD"],
+    correct: 0,
+    explanation: "Positional pleuritic chest pain after viral illness fits acute pericarditis."
   },
   {
     topic: "Cardiology",
-    vignette: "24M has exertional syncope. Systolic murmur increases with Valsalva and echo shows asymmetric septal hypertrophy.",
-    answers: ["Aortic stenosis", "Hypertrophic cardiomyopathy", "Mitral stenosis", "Atrial myxoma"],
-    correct: 1,
-    explanation: "Young patient + exertional syncope + murmur louder with Valsalva = HCM."
-  },
-  {
-    topic: "Cardiology",
-    vignette: "72M with atrial fibrillation has HR 160, hypotension, altered mental status, and pulmonary edema.",
-    answers: ["IV beta-blocker", "Immediate synchronized cardioversion", "Oral anticoagulation only", "Observation"],
-    correct: 1,
-    explanation: "Unstable tachyarrhythmia = immediate synchronized cardioversion."
-  },
-  {
-    topic: "Cardiology",
-    vignette: "68F with HFrEF is on lisinopril and metoprolol. EF is 25% and potassium is normal.",
-    answers: ["Digoxin", "Aldosterone antagonist", "Amiodarone", "Aspirin"],
-    correct: 1,
-    explanation: "HFrEF therapy includes ACEi/ARB/ARNI + beta-blocker + mineralocorticoid antagonist when appropriate."
-  },
-  {
-    topic: "Cardiology",
-    vignette: "51M has chest pain. ECG shows ST elevation in leads II, III, and aVF.",
-    answers: ["Anterior wall MI", "Inferior wall MI", "Lateral wall MI", "Posterior wall MI"],
-    correct: 1,
-    explanation: "ST elevation in II, III, aVF = inferior wall MI."
-  },
-  {
-    topic: "Cardiology",
-    vignette: "74M has exertional syncope and a harsh systolic murmur at the right upper sternal border radiating to the carotids.",
-    answers: ["Aortic regurgitation", "Mitral regurgitation", "Aortic stenosis", "Mitral stenosis"],
+    vignette: "72M with atrial fibrillation develops rapid palpitations, pulmonary edema, confusion, and low blood pressure.",
+    answers: ["Oral anticoagulation", "IV beta-blocker only", "Immediate synchronized cardioversion", "Outpatient follow-up"],
     correct: 2,
-    explanation: "Harsh systolic RUSB murmur radiating to carotids = aortic stenosis."
+    explanation: "Atrial fibrillation with hemodynamic instability requires immediate synchronized cardioversion."
   },
   {
     topic: "Cardiology",
-    vignette: "47M has hypotension, JVD, muffled heart sounds, and pulsus paradoxus after chest trauma.",
-    answers: ["Tension pneumothorax", "Cardiac tamponade", "Constrictive pericarditis", "Acute MI"],
+    vignette: "47M has chest trauma followed by hypotension, distended neck veins, muffled heart sounds, and worsening dyspnea.",
+    answers: ["Cardiac tamponade", "Tension pneumothorax", "Acute MI", "Massive pulmonary embolism"],
+    correct: 0,
+    explanation: "Hypotension, JVD, muffled heart sounds, and trauma fit cardiac tamponade."
+  },
+  {
+    topic: "Cardiology",
+    vignette: "60F has sudden pleuritic chest pain, dyspnea, tachycardia, and oxygen desaturation after a long flight.",
+    answers: ["Acute coronary syndrome", "Pulmonary embolism", "Pneumonia", "Pericarditis"],
     correct: 1,
-    explanation: "Beck triad + pulsus paradoxus = cardiac tamponade."
+    explanation: "Acute pleuritic chest pain, dyspnea, tachycardia, hypoxemia, and recent immobility fit pulmonary embolism."
   },
 
   // PULMONOLOGY
   {
     topic: "Pulmonology",
-    vignette: "42M has acute dyspnea after trauma with unilateral decreased breath sounds and hyperresonance.",
+    vignette: "42M has sudden pleuritic chest pain and dyspnea after minor chest trauma. One side has decreased breath sounds and hyperresonance, but he is hemodynamically stable.",
     answers: ["Hemothorax", "Tension pneumothorax", "Simple pneumothorax", "Flail chest"],
     correct: 2,
-    explanation: "Unilateral decreased breath sounds + hyperresonance = pneumothorax."
+    explanation: "Unilateral pleuritic pain, decreased breath sounds, and hyperresonance without shock fits simple pneumothorax."
   },
   {
     topic: "Pulmonology",
-    vignette: "28F has dyspnea, dry cough, bilateral hilar lymphadenopathy, erythema nodosum, and elevated ACE.",
+    vignette: "28F has progressive dry cough, dyspnea, fatigue, tender red nodules on her shins, and bilateral hilar fullness on chest imaging.",
     answers: ["Sarcoidosis", "Tuberculosis", "Lung cancer", "Goodpasture syndrome"],
     correct: 0,
-    explanation: "Bilateral hilar lymphadenopathy + erythema nodosum + elevated ACE = sarcoidosis."
+    explanation: "Young adult with pulmonary symptoms, erythema nodosum, and bilateral hilar lymphadenopathy fits sarcoidosis."
   },
   {
     topic: "Pulmonology",
-    vignette: "55M has chronic cough, night sweats, weight loss, hemoptysis, and an upper-lobe cavitary lesion.",
-    answers: ["Sarcoidosis", "Pneumonia", "Tuberculosis", "Aspergilloma"],
+    vignette: "55M has months of cough, night sweats, weight loss, and intermittent hemoptysis. Chest imaging shows an upper-lobe cavitary lesion.",
+    answers: ["Sarcoidosis", "Community-acquired pneumonia", "Tuberculosis", "Pulmonary edema"],
     correct: 2,
-    explanation: "Constitutional symptoms + upper-lobe cavity = active tuberculosis."
+    explanation: "Chronic cough, constitutional symptoms, hemoptysis, and upper-lobe cavitation fit active tuberculosis."
   },
   {
     topic: "Pulmonology",
-    vignette: "62M has acute dyspnea, pink frothy sputum, bibasilar crackles, and cardiomegaly on CXR.",
-    answers: ["COPD exacerbation", "Cardiogenic pulmonary edema", "Pneumonia", "Pneumothorax"],
+    vignette: "62M with known heart disease develops acute dyspnea, pink frothy sputum, diffuse crackles, and worsening symptoms when lying flat.",
+    answers: ["COPD exacerbation", "Cardiogenic pulmonary edema", "Pneumonia", "Spontaneous pneumothorax"],
     correct: 1,
-    explanation: "Pink frothy sputum + crackles + cardiomegaly = cardiogenic pulmonary edema."
+    explanation: "Acute dyspnea with orthopnea, diffuse crackles, and pink frothy sputum fits cardiogenic pulmonary edema."
   },
   {
     topic: "Pulmonology",
-    vignette: "38F has wheezing and dyspnea. PFTs show FEV1/FVC ratio of 0.65.",
-    answers: ["Obstructive lung disease", "Restrictive lung disease", "Normal spirometry", "Pulmonary vascular disease"],
+    vignette: "26F has recurrent episodes of wheezing, cough, and chest tightness that worsen at night and improve after using an inhaler.",
+    answers: ["Asthma", "COPD", "Pulmonary fibrosis", "Pulmonary embolism"],
     correct: 0,
-    explanation: "FEV1/FVC < 0.70 = obstructive physiology."
+    explanation: "Episodic wheezing and cough with nighttime worsening and bronchodilator response fits asthma."
   },
   {
     topic: "Pulmonology",
-    vignette: "32M has acute pleuritic chest pain, tachycardia, hypoxemia, and wedge-shaped opacity on CXR.",
-    answers: ["Pneumonia", "Acute MI", "Pulmonary embolism with infarction", "Pericarditis"],
+    vignette: "32M has sudden pleuritic chest pain, dyspnea, tachycardia, and low oxygen saturation after several days of leg immobilization.",
+    answers: ["Pneumonia", "Acute coronary syndrome", "Pulmonary embolism", "Pericarditis"],
     correct: 2,
-    explanation: "Pleuritic pain + hypoxemia + wedge-shaped opacity = PE with infarction."
+    explanation: "Acute pleuritic pain, dyspnea, hypoxemia, tachycardia, and recent immobilization fit pulmonary embolism."
   },
   {
     topic: "Pulmonology",
-    vignette: "44F bird breeder has cough, dyspnea, diffuse interstitial infiltrates, and symptoms worse after exposure.",
+    vignette: "44F keeps birds at home and develops cough, dyspnea, fatigue, and diffuse interstitial changes that worsen after exposure.",
     answers: ["Idiopathic pulmonary fibrosis", "Sarcoidosis", "Hypersensitivity pneumonitis", "Silicosis"],
     correct: 2,
-    explanation: "Bird/mold exposure + interstitial lung disease = hypersensitivity pneumonitis."
+    explanation: "Respiratory symptoms and interstitial findings triggered by bird exposure fit hypersensitivity pneumonitis."
   },
   {
     topic: "Pulmonology",
-    vignette: "19M with sepsis develops severe hypoxemia and bilateral infiltrates without signs of heart failure.",
+    vignette: "19M hospitalized with severe infection develops worsening hypoxemia and bilateral lung infiltrates despite no evidence of volume overload or heart failure.",
     answers: ["Pneumonia", "ARDS", "Asthma exacerbation", "Cardiogenic pulmonary edema"],
     correct: 1,
-    explanation: "Severe hypoxemia + bilateral infiltrates + no heart failure = ARDS."
+    explanation: "Severe inflammatory illness followed by hypoxemia and bilateral infiltrates without heart failure fits ARDS."
   },
   {
     topic: "Pulmonology",
-    vignette: "56F smoker has cough, weight loss, and a 2-cm spiculated right upper-lobe pulmonary nodule.",
+    vignette: "56F with a long smoking history has chronic cough, weight loss, and a new irregular upper-lobe lung nodule on imaging.",
     answers: ["Benign granuloma", "Viral infection", "Lung cancer", "Pulmonary abscess"],
     correct: 2,
-    explanation: "Smoking + weight loss + spiculated lung nodule = lung cancer until proven otherwise."
+    explanation: "Smoking history, weight loss, cough, and irregular lung nodule fit lung cancer until proven otherwise."
   },
   {
     topic: "Pulmonology",
-    vignette: "34M has productive cough, night sweats, weight loss, cavitary lesion, and positive acid-fast smear.",
-    answers: ["Active tuberculosis", "Latent TB", "Nontuberculous mycobacteria", "Histoplasmosis"],
+    vignette: "67M with COPD develops increased dyspnea, wheezing, cough, and sputum production over 2 days without chest pain or focal consolidation.",
+    answers: ["COPD exacerbation", "Pulmonary embolism", "Acute heart failure", "Pneumothorax"],
     correct: 0,
-    explanation: "Symptoms + cavitary lesion + acid-fast bacilli = active TB."
+    explanation: "Known COPD with acute worsening dyspnea, wheeze, cough, and sputum production fits COPD exacerbation."
   },
 
   // NEPHROLOGY
   {
     topic: "Nephrology",
-    vignette: "48M with sepsis has acute creatinine rise and muddy brown granular casts on urinalysis.",
-    answers: ["Diabetic nephropathy", "Poststreptococcal GN", "Acute tubular necrosis", "Lupus nephritis"],
+    vignette: "48M in the ICU after sepsis develops a rapid creatinine rise and urine microscopy showing pigmented granular casts.",
+    answers: ["Diabetic nephropathy", "Poststreptococcal glomerulonephritis", "Acute tubular necrosis", "Lupus nephritis"],
     correct: 2,
-    explanation: "Muddy brown casts = acute tubular necrosis."
+    explanation: "Sepsis followed by acute kidney injury and granular casts fits acute tubular necrosis."
   },
   {
     topic: "Nephrology",
-    vignette: "35F has hematuria, hypertension, edema, RBC casts, and normal complement levels.",
-    answers: ["IgA nephropathy", "Poststreptococcal GN", "Membranoproliferative GN", "Minimal change disease"],
+    vignette: "24M develops visible blood in the urine two days after a sore throat. Blood pressure is elevated, but complement levels are normal.",
+    answers: ["IgA nephropathy", "Poststreptococcal glomerulonephritis", "Membranoproliferative glomerulonephritis", "Minimal change disease"],
     correct: 0,
-    explanation: "Nephritic syndrome + normal complement = IgA nephropathy pattern."
+    explanation: "Hematuria within days of a respiratory infection with normal complement fits IgA nephropathy."
   },
   {
     topic: "Nephrology",
-    vignette: "52M with long-standing diabetes has nephrotic-range proteinuria and nodular glomerulosclerosis on biopsy.",
+    vignette: "52M with long-standing poorly controlled diabetes develops leg swelling and heavy proteinuria over months.",
     answers: ["Minimal change disease", "FSGS", "Diabetic nephropathy", "Membranous nephropathy"],
     correct: 2,
-    explanation: "Nodular glomerulosclerosis = diabetic nephropathy."
+    explanation: "Long-standing diabetes with gradual nephrotic-range proteinuria fits diabetic nephropathy."
   },
   {
     topic: "Nephrology",
-    vignette: "41M with renal failure has potassium 6.8 and new peaked T waves on ECG.",
-    answers: ["Hyperkalemia", "Hypocalcemia", "Hypomagnesemia", "Hypokalemia"],
+    vignette: "41M with renal failure has weakness and palpitations. ECG shows tall peaked T waves and widening QRS complexes.",
+    answers: ["IV calcium gluconate", "Loop diuretic only", "Oral potassium binder only", "Fluid restriction"],
     correct: 0,
-    explanation: "Hyperkalemia causes peaked T waves."
+    explanation: "Renal failure with ECG changes from hyperkalemia requires immediate cardiac membrane stabilization with IV calcium."
   },
   {
     topic: "Nephrology",
-    vignette: "29F has flank pain, hematuria, bilateral renal cysts, and a father who died of renal failure.",
+    vignette: "29F has recurrent flank pain and hematuria. Imaging shows enlarged kidneys with multiple bilateral cysts; her father needed dialysis.",
     answers: ["Pyelonephritis", "Autosomal dominant polycystic kidney disease", "Renal infarction", "Renal cell carcinoma"],
     correct: 1,
-    explanation: "Bilateral renal cysts + family history = ADPKD."
+    explanation: "Bilateral renal cysts with family history of kidney failure fits autosomal dominant polycystic kidney disease."
   },
   {
     topic: "Nephrology",
-    vignette: "58M has confusion, serum osmolality 255, urine osmolality 520, urine sodium high, and euvolemia.",
+    vignette: "58M is confused with low serum sodium. He appears euvolemic, and his urine remains concentrated rather than appropriately dilute.",
     answers: ["Hypovolemic hyponatremia", "SIADH", "Diabetes insipidus", "Primary polydipsia"],
     correct: 1,
-    explanation: "Euvolemic hyponatremia + concentrated urine = SIADH."
+    explanation: "Euvolemic hyponatremia with inappropriately concentrated urine fits SIADH."
   },
   {
     topic: "Nephrology",
-    vignette: "67F with long-standing hypertension has chronic kidney disease and hyaline arteriolosclerosis on biopsy.",
+    vignette: "67F with decades of poorly controlled hypertension has slowly progressive kidney dysfunction and mild proteinuria.",
     answers: ["Diabetic nephropathy", "Hypertensive nephrosclerosis", "IgA nephropathy", "FSGS"],
     correct: 1,
-    explanation: "Hypertension + hyaline arteriolosclerosis = hypertensive nephrosclerosis."
+    explanation: "Long-standing hypertension with gradual chronic kidney disease and mild proteinuria fits hypertensive nephrosclerosis."
   },
   {
     topic: "Nephrology",
-    vignette: "39M has fever, flank pain, CVA tenderness, nitrite-positive urine, and WBC casts.",
+    vignette: "39M has fever, flank pain, nausea, urinary frequency, and marked tenderness over one costovertebral angle.",
     answers: ["Cystitis", "Nephrolithiasis", "Pyelonephritis", "Appendicitis"],
     correct: 2,
-    explanation: "Fever + CVA tenderness + WBC casts = pyelonephritis."
+    explanation: "Fever, urinary symptoms, and flank/CVA tenderness fit pyelonephritis."
   },
   {
     topic: "Nephrology",
-    vignette: "44F has nephrotic syndrome and biopsy shows diffuse glomerular basement membrane thickening.",
-    answers: ["Minimal change disease", "FSGS", "Membranous nephropathy", "MPGN"],
-    correct: 2,
-    explanation: "Nephrotic syndrome + GBM thickening = membranous nephropathy."
-  },
-  {
-    topic: "Nephrology",
-    vignette: "51M has acute flank pain and hematuria. CT shows a 5-mm ureteral stone without infection.",
-    answers: ["Immediate surgery", "Analgesia and observation", "Emergency nephrostomy", "Immediate dialysis"],
+    vignette: "44F develops generalized edema and frothy urine. Urine protein is markedly elevated, but she has no hematuria or active urinary sediment.",
+    answers: ["Nephritic syndrome", "Nephrotic syndrome", "Acute tubular necrosis", "Postrenal obstruction"],
     correct: 1,
-    explanation: "Small uncomplicated ureteral stones often pass with analgesia and observation."
+    explanation: "Edema and heavy proteinuria without inflammatory urine findings fit nephrotic syndrome."
+  },
+  {
+    topic: "Nephrology",
+    vignette: "51M has sudden severe flank pain radiating to the groin with nausea and microscopic hematuria.",
+    answers: ["Pyelonephritis", "Ureteral stone", "Renal cell carcinoma", "Glomerulonephritis"],
+    correct: 1,
+    explanation: "Colicky flank pain radiating to the groin with hematuria fits ureteral stone."
   },
 
   // GASTROENTEROLOGY
   {
     topic: "Gastroenterology",
-    vignette: "48F has postprandial burning epigastric/chest discomfort, sour taste, and normal upper endoscopy.",
+    vignette: "48F has burning chest discomfort after meals, sour taste in her mouth, and symptoms that worsen when lying down.",
     answers: ["Peptic ulcer disease", "GERD", "Gastric cancer", "Acute pancreatitis"],
     correct: 1,
-    explanation: "Burning discomfort + sour taste/regurgitation = GERD."
+    explanation: "Postprandial burning, regurgitation, and worse symptoms when supine fit GERD."
   },
   {
     topic: "Gastroenterology",
-    vignette: "62M with cirrhosis has massive hematemesis and endoscopy shows bleeding esophageal varices.",
+    vignette: "62M with known cirrhosis suddenly vomits a large amount of blood and becomes lightheaded.",
     answers: ["Peptic ulcer bleeding", "Esophageal variceal bleeding", "Mallory-Weiss tear", "Angiodysplasia"],
     correct: 1,
-    explanation: "Cirrhosis + bleeding varices = esophageal variceal bleeding."
+    explanation: "Massive hematemesis in a patient with cirrhosis fits esophageal variceal bleeding."
   },
   {
     topic: "Gastroenterology",
-    vignette: "34F has RUQ pain after fatty meals, fever, leukocytosis, and positive Murphy sign.",
+    vignette: "34F has steady right upper quadrant pain after a fatty meal, fever, nausea, and tenderness that worsens with inspiration.",
     answers: ["Biliary colic", "Acute cholecystitis", "Acute pancreatitis", "Viral hepatitis"],
     correct: 1,
-    explanation: "RUQ pain + fever + Murphy sign = acute cholecystitis."
+    explanation: "Persistent RUQ pain with fever and inspiratory tenderness fits acute cholecystitis."
   },
   {
     topic: "Gastroenterology",
-    vignette: "58F has severe epigastric pain radiating to the back after alcohol binge and lipase 850.",
+    vignette: "58M has severe epigastric pain radiating to the back after heavy alcohol use, with repeated vomiting.",
     answers: ["GERD", "Acute pancreatitis", "Acute MI", "Peptic ulcer disease"],
     correct: 1,
-    explanation: "Epigastric pain to back + elevated lipase = acute pancreatitis."
+    explanation: "Severe epigastric pain radiating to the back after alcohol use fits acute pancreatitis."
   },
   {
     topic: "Gastroenterology",
-    vignette: "42M has chronic diarrhea, weight loss, iron deficiency, and villous atrophy on small bowel biopsy.",
+    vignette: "42M has chronic diarrhea, weight loss, bloating, fatigue, and iron deficiency that improve when he avoids wheat-containing foods.",
     answers: ["Crohn disease", "Celiac disease", "IBS", "Lactose intolerance"],
     correct: 1,
-    explanation: "Villous atrophy + malabsorption = celiac disease."
+    explanation: "Malabsorptive symptoms with iron deficiency and wheat sensitivity fit celiac disease."
   },
   {
     topic: "Gastroenterology",
-    vignette: "29F develops watery diarrhea after clindamycin. Stool toxin assay is positive.",
-    answers: ["Viral gastroenteritis", "C. difficile infection", "Salmonella", "Crohn disease"],
+    vignette: "29F develops frequent watery diarrhea and abdominal cramping one week after completing antibiotics for sinusitis.",
+    answers: ["Viral gastroenteritis", "C. difficile infection", "Salmonella gastroenteritis", "Crohn disease"],
     correct: 1,
-    explanation: "Antibiotic exposure + positive toxin assay = C. difficile infection."
+    explanation: "Watery diarrhea after recent antibiotic exposure fits C. difficile infection."
   },
   {
     topic: "Gastroenterology",
-    vignette: "51M with hepatitis C has ascites, jaundice, spider angiomas, thrombocytopenia, and elevated INR.",
-    answers: ["Acute hepatitis", "Cirrhosis with portal hypertension", "Acute cholangitis", "Pancreatic cancer"],
+    vignette: "51M with chronic hepatitis C has abdominal distension, jaundice, easy bruising, spider angiomas, and leg swelling.",
+    answers: ["Acute hepatitis", "Decompensated cirrhosis", "Acute cholangitis", "Pancreatic cancer"],
     correct: 1,
-    explanation: "Ascites + spider angiomas + coagulopathy = decompensated cirrhosis."
+    explanation: "Ascites, jaundice, bruising, spider angiomas, and edema in chronic liver disease fit decompensated cirrhosis."
   },
   {
     topic: "Gastroenterology",
-    vignette: "37M has LLQ pain, fever, leukocytosis, and CT-confirmed uncomplicated diverticulitis.",
-    answers: ["Urgent surgery", "Bowel rest and antibiotics", "Immediate colonoscopy", "No treatment needed"],
+    vignette: "37M has fever and steady left lower quadrant abdominal pain. CT shows inflammation around the sigmoid colon without perforation.",
+    answers: ["Appendicitis", "Diverticulitis", "Ulcerative colitis", "Ischemic colitis"],
     correct: 1,
-    explanation: "Uncomplicated diverticulitis = bowel rest and antibiotics/supportive care."
+    explanation: "LLQ pain, fever, and sigmoid inflammation fit diverticulitis."
   },
   {
     topic: "Gastroenterology",
-    vignette: "55F has chronic abdominal pain with alternating diarrhea and constipation. No weight loss; colonoscopy is normal.",
+    vignette: "55F has years of abdominal discomfort with alternating diarrhea and constipation. Symptoms improve after bowel movements, and she has no weight loss.",
     answers: ["Crohn disease", "Ulcerative colitis", "Irritable bowel syndrome", "Celiac disease"],
     correct: 2,
-    explanation: "Chronic bowel habit changes + normal evaluation + no alarm signs = IBS."
+    explanation: "Chronic abdominal discomfort linked to bowel habits without alarm features fits IBS."
   },
   {
     topic: "Gastroenterology",
-    vignette: "46M has progressive dysphagia, weight loss, and an irregular constricting esophageal mass on imaging.",
+    vignette: "46M has progressive difficulty swallowing solids, then liquids, along with unintentional weight loss.",
     answers: ["Benign stricture", "Achalasia", "Esophageal cancer", "GERD"],
     correct: 2,
-    explanation: "Progressive dysphagia + weight loss + mass = esophageal cancer."
+    explanation: "Progressive dysphagia with weight loss, especially starting with solids, fits esophageal cancer."
   },
 
   // ENDOCRINOLOGY
   {
     topic: "Endocrinology",
-    vignette: "19M has polyuria, weight loss, abdominal pain, Kussmaul respirations, glucose 580, and positive serum ketones.",
+    vignette: "19M has polyuria, weight loss, abdominal pain, deep rapid breathing, dehydration, and very high glucose.",
     answers: ["Type 2 diabetes", "Diabetic ketoacidosis", "Hyperosmolar hyperglycemic state", "Hypoglycemia"],
     correct: 1,
-    explanation: "Kussmaul respirations + hyperglycemia + ketones = DKA."
+    explanation: "Young patient with hyperglycemia, weight loss, dehydration, abdominal pain, and deep breathing fits DKA."
   },
   {
     topic: "Endocrinology",
-    vignette: "68F with type 2 diabetes has glucose 900, severe dehydration, confusion, and minimal ketones.",
-    answers: ["DKA", "HHS", "Lactic acidosis", "Hypoglycemia"],
+    vignette: "68F with type 2 diabetes is confused and severely dehydrated. Glucose is extremely high, but she has minimal acidosis.",
+    answers: ["Diabetic ketoacidosis", "Hyperosmolar hyperglycemic state", "Lactic acidosis", "Hypoglycemia"],
     correct: 1,
-    explanation: "Extreme hyperglycemia + dehydration + minimal ketones = HHS."
+    explanation: "Older type 2 diabetic with extreme hyperglycemia, dehydration, confusion, and minimal acidosis fits HHS."
   },
   {
     topic: "Endocrinology",
-    vignette: "58M has tremor, palpitations, weight loss, low TSH, and elevated free T4.",
-    answers: ["Hypothyroidism", "Hyperthyroidism", "Thyroiditis only", "Central hypothyroidism"],
+    vignette: "58M has weight loss despite increased appetite, tremor, heat intolerance, palpitations, and a diffusely enlarged thyroid.",
+    answers: ["Hypothyroidism", "Hyperthyroidism", "Thyroid cancer", "Central hypothyroidism"],
     correct: 1,
-    explanation: "Low TSH + high free T4 = hyperthyroidism."
+    explanation: "Weight loss, heat intolerance, tremor, palpitations, and goiter fit hyperthyroidism."
   },
   {
     topic: "Endocrinology",
-    vignette: "42F has fatigue, cold intolerance, weight gain, high TSH, and low free T4.",
-    answers: ["Hyperthyroidism", "Primary hypothyroidism", "Subclinical hypothyroidism", "Graves disease"],
+    vignette: "42F has fatigue, weight gain, cold intolerance, constipation, dry skin, and a slow heart rate.",
+    answers: ["Hyperthyroidism", "Hypothyroidism", "Adrenal insufficiency", "Cushing syndrome"],
     correct: 1,
-    explanation: "High TSH + low free T4 = primary hypothyroidism."
+    explanation: "Cold intolerance, weight gain, constipation, dry skin, and bradycardia fit hypothyroidism."
   },
   {
     topic: "Endocrinology",
-    vignette: "51M has resistant hypertension, hypokalemia, metabolic alkalosis, high aldosterone, and low renin.",
-    answers: ["Primary hyperaldosteronism", "Diuretic use", "Secondary hyperaldosteronism", "Cushing syndrome"],
+    vignette: "51M has resistant hypertension, muscle weakness, low potassium, and metabolic alkalosis despite no diuretic use.",
+    answers: ["Primary hyperaldosteronism", "Pheochromocytoma", "Addison disease", "SIADH"],
     correct: 0,
-    explanation: "High aldosterone + low renin + hypokalemia = primary hyperaldosteronism."
+    explanation: "Resistant hypertension with hypokalemia and metabolic alkalosis fits primary hyperaldosteronism."
   },
   {
     topic: "Endocrinology",
-    vignette: "38F has central obesity, proximal weakness, easy bruising, high cortisol, and suppressed ACTH.",
-    answers: ["Adrenal insufficiency", "Adrenal Cushing syndrome", "SIADH", "Pituitary Cushing disease"],
+    vignette: "38F has central weight gain, easy bruising, facial rounding, proximal muscle weakness, and new hypertension.",
+    answers: ["Adrenal insufficiency", "Cushing syndrome", "Hypothyroidism", "PCOS"],
     correct: 1,
-    explanation: "High cortisol + low ACTH = adrenal source of Cushing syndrome."
+    explanation: "Central obesity, bruising, proximal weakness, facial rounding, and hypertension fit Cushing syndrome."
   },
   {
     topic: "Endocrinology",
-    vignette: "26F has irregular menses, hirsutism, acne, insulin resistance, and polycystic ovaries.",
+    vignette: "26F has irregular menses, acne, increased facial hair, weight gain, and difficulty becoming pregnant.",
     answers: ["Cushing syndrome", "PCOS", "Androgen-secreting tumor", "Hyperprolactinemia"],
     correct: 1,
-    explanation: "Oligomenorrhea + hyperandrogenism = PCOS."
+    explanation: "Irregular menses with hyperandrogenic features and infertility fits PCOS."
   },
   {
     topic: "Endocrinology",
-    vignette: "67M has calcium 11.2, elevated PTH, kidney stones, and subperiosteal bone resorption.",
+    vignette: "67M has recurrent kidney stones, constipation, bone pain, fatigue, and persistently elevated calcium.",
     answers: ["Hypervitaminosis D", "Milk-alkali syndrome", "Primary hyperparathyroidism", "Thiazide effect"],
     correct: 2,
-    explanation: "High calcium + high PTH = primary hyperparathyroidism."
+    explanation: "Stones, bones, abdominal symptoms, fatigue, and high calcium fit primary hyperparathyroidism."
   },
   {
     topic: "Endocrinology",
-    vignette: "52F postmenopausal woman has DEXA T-score of -2.8 and no prior fractures.",
-    answers: ["Normal bone density", "Osteopenia", "Osteoporosis", "Osteomalacia"],
+    vignette: "52F after menopause has a low-trauma wrist fracture and reduced bone density on screening.",
+    answers: ["Normal aging", "Osteopenia", "Osteoporosis", "Osteomalacia"],
     correct: 2,
-    explanation: "T-score ≤ -2.5 = osteoporosis."
+    explanation: "Postmenopausal low-trauma fracture with reduced bone density fits osteoporosis."
   },
   {
     topic: "Endocrinology",
-    vignette: "41M has fasting hypoglycemia with high insulin, high C-peptide, and negative sulfonylurea screen.",
-    answers: ["Factitious insulin use", "Insulinoma", "Sulfonylurea use", "Adrenal insufficiency"],
+    vignette: "41M has recurrent fasting episodes of sweating, confusion, and tremor that improve quickly after eating.",
+    answers: ["Factitious insulin use", "Insulinoma", "Panic disorder", "Adrenal insufficiency"],
     correct: 1,
-    explanation: "Hypoglycemia + high insulin/C-peptide + negative sulfonylurea = insulinoma."
+    explanation: "Recurrent fasting hypoglycemic symptoms relieved by food fit insulinoma."
   },
 
   // HEMATOLOGY
   {
     topic: "Hematology",
-    vignette: "52F has fatigue, Hgb 7.2, MCV 68, ferritin 8, and elevated TIBC.",
-    answers: ["Anemia of chronic disease", "Iron deficiency anemia", "Sideroblastic anemia", "Thalassemia"],
+    vignette: "52F has fatigue, shortness of breath, heavy menstrual bleeding, pale conjunctiva, and small red blood cells on CBC.",
+    answers: ["Anemia of chronic disease", "Iron deficiency anemia", "Sideroblastic anemia", "Thalassemia trait"],
     correct: 1,
-    explanation: "Low MCV + low ferritin + high TIBC = iron deficiency anemia."
+    explanation: "Microcytic anemia with chronic blood loss symptoms fits iron deficiency anemia."
   },
   {
     topic: "Hematology",
-    vignette: "67M has fatigue, paresthesias, MCV 105, and elevated methylmalonic acid.",
+    vignette: "67M has fatigue, numbness in his feet, gait instability, a smooth tongue, and enlarged red blood cells.",
     answers: ["Folate deficiency", "Vitamin B12 deficiency", "Hypothyroidism", "Reticulocytosis"],
     correct: 1,
-    explanation: "Elevated methylmalonic acid = vitamin B12 deficiency."
+    explanation: "Macrocytic anemia with neurologic symptoms and glossitis fits vitamin B12 deficiency."
   },
   {
     topic: "Hematology",
-    vignette: "38F has jaundice, dark urine, high LDH, low haptoglobin, and positive direct Coombs test.",
+    vignette: "38F has fatigue, jaundice, dark urine, mild splenomegaly, and anemia after a recent viral illness.",
     answers: ["Iron deficiency anemia", "Hereditary spherocytosis", "G6PD deficiency", "Autoimmune hemolytic anemia"],
     correct: 3,
-    explanation: "Hemolysis + positive direct Coombs = autoimmune hemolytic anemia."
+    explanation: "Acute hemolytic anemia after illness with jaundice, dark urine, and splenomegaly fits autoimmune hemolysis."
   },
   {
     topic: "Hematology",
-    vignette: "4YO has recurrent pain crises, hemolytic anemia, splenomegaly, and HbS on electrophoresis.",
+    vignette: "4YO has recurrent episodes of severe bone pain, anemia, jaundice, and infections with encapsulated organisms.",
     answers: ["Thalassemia", "G6PD deficiency", "Sickle cell disease", "Hereditary spherocytosis"],
     correct: 2,
-    explanation: "Pain crises + HbS = sickle cell disease."
+    explanation: "Child with vaso-occlusive pain episodes, hemolysis, and functional asplenia fits sickle cell disease."
   },
   {
     topic: "Hematology",
-    vignette: "64M has pancytopenia, infections, bleeding, and markedly hypocellular bone marrow.",
+    vignette: "64M has fatigue, frequent infections, easy bruising, and low red cells, white cells, and platelets.",
     answers: ["ITP", "TTP", "DIC", "Aplastic anemia"],
     correct: 3,
-    explanation: "Pancytopenia + hypocellular marrow = aplastic anemia."
+    explanation: "Pancytopenia with infections, bruising, and fatigue fits aplastic anemia."
   },
   {
     topic: "Hematology",
-    vignette: "23F has fever, neurologic symptoms, AKI, thrombocytopenia, and schistocytes.",
+    vignette: "23F has fever, confusion, kidney injury, bruising, low platelets, and evidence of red cell fragmentation.",
     answers: ["ITP", "DIC", "TTP", "Hemophilia A"],
     correct: 2,
-    explanation: "MAHA + thrombocytopenia + neurologic/renal findings = TTP."
+    explanation: "Thrombocytopenia, neurologic changes, kidney injury, fever, and hemolysis fit TTP."
   },
   {
     topic: "Hematology",
-    vignette: "58M has WBC 95K, anemia, thrombocytopenia, 25% blasts, and Auer rods.",
-    answers: ["CML", "Acute myeloid leukemia", "Leukemoid reaction", "CLL"],
+    vignette: "58M has fatigue, recurrent infections, gum bleeding, very high white count, anemia, and many immature cells on smear.",
+    answers: ["Chronic myeloid leukemia", "Acute leukemia", "Leukemoid reaction", "Chronic lymphocytic leukemia"],
     correct: 1,
-    explanation: "Auer rods = AML."
+    explanation: "Infections, bleeding, anemia, and many immature cells fit acute leukemia."
   },
   {
     topic: "Hematology",
-    vignette: "72M has bone pain, renal dysfunction, hypercalcemia, anemia, and M-spike on SPEP.",
+    vignette: "72M has back pain, fatigue, recurrent infections, kidney dysfunction, and elevated serum protein.",
     answers: ["Waldenström macroglobulinemia", "Multiple myeloma", "Hodgkin lymphoma", "CLL"],
     correct: 1,
-    explanation: "CRAB features + M-spike = multiple myeloma."
+    explanation: "Bone pain, anemia/fatigue, renal dysfunction, infections, and high protein fit multiple myeloma."
   },
   {
     topic: "Hematology",
-    vignette: "46F on warfarin has INR 8.5 but no bleeding.",
-    answers: ["Fresh frozen plasma", "Vitamin K", "Platelet transfusion", "Protamine"],
+    vignette: "46F taking warfarin has a very high INR discovered on routine testing, but she has no bleeding.",
+    answers: ["Fresh frozen plasma", "Vitamin K and hold warfarin", "Platelet transfusion", "Protamine"],
     correct: 1,
-    explanation: "Very high INR without bleeding = hold warfarin and give vitamin K."
+    explanation: "Very high INR without bleeding is managed by holding warfarin and giving vitamin K."
   },
   {
     topic: "Hematology",
-    vignette: "31M has fever, night sweats, weight loss, painless lymphadenopathy, and Reed-Sternberg cells.",
+    vignette: "31M has painless neck lymph node enlargement, fevers, night sweats, weight loss, and itching.",
     answers: ["Non-Hodgkin lymphoma", "Hodgkin lymphoma", "Tuberculosis", "Reactive lymphadenopathy"],
     correct: 1,
-    explanation: "Reed-Sternberg cells = Hodgkin lymphoma."
+    explanation: "Young adult with painless lymphadenopathy and B symptoms fits Hodgkin lymphoma."
   },
 
   // INFECTIOUS DISEASE
   {
     topic: "Infectious Disease",
-    vignette: "47M has fever, hypotension after fluids, altered mental status, and lactate 4.2.",
+    vignette: "47M with pneumonia becomes confused and hypotensive despite fluids. He is febrile, tachycardic, and has signs of poor perfusion.",
     answers: ["Septic shock", "Cardiogenic shock", "Anaphylaxis", "Stroke"],
     correct: 0,
-    explanation: "Infection + persistent hypotension/lactate elevation = septic shock."
+    explanation: "Infection with persistent hypotension and organ dysfunction fits septic shock."
   },
   {
     topic: "Infectious Disease",
-    vignette: "34M has fever, neck stiffness, petechial rash, and CSF with low glucose and neutrophils.",
+    vignette: "34M has fever, severe headache, neck stiffness, photophobia, confusion, and a rapidly worsening petechial rash.",
     answers: ["Viral meningitis", "Bacterial meningitis", "TB meningitis", "Fungal meningitis"],
     correct: 1,
-    explanation: "Low CSF glucose + neutrophils = bacterial meningitis."
+    explanation: "Acute fever, meningismus, confusion, and petechial rash fit bacterial meningitis."
   },
   {
     topic: "Infectious Disease",
-    vignette: "28M has fever, confusion, seizures, and MRI showing temporal lobe enhancement.",
-    answers: ["Bacterial meningitis", "Viral meningitis", "HSV encephalitis", "Fungal meningitis"],
+    vignette: "28M has fever, confusion, personality changes, focal seizures, and progressive neurologic decline over two days.",
+    answers: ["Bacterial meningitis", "Viral meningitis", "Herpes encephalitis", "Fungal meningitis"],
     correct: 2,
-    explanation: "Temporal lobe encephalitis = HSV encephalitis."
+    explanation: "Fever with encephalopathy, behavior change, and focal seizures fits herpes encephalitis."
   },
   {
     topic: "Infectious Disease",
-    vignette: "52M with prosthetic valve has fever, new murmur, and septic emboli.",
-    answers: ["Endocarditis", "Pericarditis", "Myocarditis", "Pneumonia"],
+    vignette: "52M with a prosthetic valve has persistent fever, a new murmur, small painful finger nodules, and embolic skin findings.",
+    answers: ["Infective endocarditis", "Pericarditis", "Myocarditis", "Pneumonia"],
     correct: 0,
-    explanation: "Fever + new murmur + emboli = infective endocarditis."
+    explanation: "Fever, new murmur, prosthetic valve, and embolic findings fit infective endocarditis."
   },
   {
     topic: "Infectious Disease",
-    vignette: "39F has nonbloody diarrhea after eating undercooked poultry. Stool culture grows Salmonella; she is stable.",
+    vignette: "39F has watery diarrhea and crampy abdominal pain after eating undercooked poultry. She is stable and not immunocompromised.",
     answers: ["Immediate antibiotics", "Supportive care", "Urgent surgery", "Antitoxin"],
     correct: 1,
-    explanation: "Uncomplicated nontyphoidal Salmonella gastroenteritis = supportive care."
+    explanation: "Stable noninvasive foodborne diarrhea after poultry exposure is usually managed supportively."
   },
   {
     topic: "Infectious Disease",
-    vignette: "45M has cough, conjunctivitis, coryza, Koplik spots, and descending maculopapular rash.",
+    vignette: "5YO unvaccinated child has high fever, cough, runny nose, red eyes, and a spreading rash that began on the face.",
     answers: ["Rubella", "Measles", "Varicella", "Scarlet fever"],
     correct: 1,
-    explanation: "Koplik spots + cough/coryza/conjunctivitis = measles."
+    explanation: "Unvaccinated child with fever, cough/coryza/conjunctivitis, and face-first spreading rash fits measles."
   },
   {
     topic: "Infectious Disease",
-    vignette: "31M has a painful genital ulcer with tender suppurative inguinal lymphadenopathy.",
-    answers: ["HSV", "Syphilis", "Chancroid", "Granuloma inguinale"],
+    vignette: "31M has a painful genital ulcer and tender swollen inguinal lymph nodes after unprotected sex.",
+    answers: ["Genital herpes", "Syphilis", "Chancroid", "Granuloma inguinale"],
     correct: 2,
-    explanation: "Painful ulcer + tender lymph nodes = chancroid."
+    explanation: "Painful genital ulcer with tender lymphadenopathy fits chancroid."
   },
   {
     topic: "Infectious Disease",
-    vignette: "27F with AIDS has dyspnea, dry cough, hypoxemia, and bilateral ground-glass infiltrates.",
+    vignette: "27F with advanced HIV has progressive dyspnea, dry cough, fever, low oxygen saturation, and diffuse bilateral hazy infiltrates.",
     answers: ["Bacterial pneumonia", "Tuberculosis", "Pneumocystis pneumonia", "CMV pneumonitis"],
     correct: 2,
-    explanation: "AIDS + dry cough + ground-glass infiltrates = Pneumocystis pneumonia."
+    explanation: "Advanced HIV with dry cough, hypoxemia, and diffuse bilateral infiltrates fits Pneumocystis pneumonia."
   },
   {
     topic: "Infectious Disease",
-    vignette: "52M has jaundice, ALT 1200, HBsAg positive, IgM anti-HBc positive, and HBeAg positive.",
-    answers: ["Chronic hepatitis B", "Acute hepatitis B", "Hepatitis B immunity", "Resolved infection"],
+    vignette: "52M develops jaundice, fatigue, dark urine, and right upper quadrant discomfort several weeks after a needlestick injury.",
+    answers: ["Chronic hepatitis B", "Acute hepatitis B", "Resolved hepatitis B", "Hepatitis B immunity"],
     correct: 1,
-    explanation: "IgM anti-HBc = acute hepatitis B."
+    explanation: "New jaundice and hepatitis symptoms weeks after blood exposure fit acute hepatitis B."
   },
   {
     topic: "Infectious Disease",
-    vignette: "48M returns from a malaria-endemic region with cyclic fevers, chills, jaundice, and anemia.",
+    vignette: "48M returns from West Africa with recurrent fevers, shaking chills, sweats, jaundice, and anemia.",
     answers: ["Dengue", "Typhoid fever", "Malaria", "Leptospirosis"],
     correct: 2,
-    explanation: "Cyclic fever after endemic travel = malaria."
+    explanation: "Recurrent fever with chills, sweats, anemia, and travel to an endemic region fits malaria."
   },
 
   // NEUROLOGY
   {
     topic: "Neurology",
-    vignette: "67M has sudden right-sided weakness and aphasia. Last known well was 2 hours ago.",
+    vignette: "67M suddenly develops right arm weakness, facial droop, and difficulty speaking while eating breakfast. Symptoms began 2 hours ago.",
     answers: ["TIA", "Hemorrhagic stroke", "Acute ischemic stroke", "Todd paralysis"],
     correct: 2,
-    explanation: "Sudden focal neurologic deficit within thrombolysis window = acute ischemic stroke."
+    explanation: "Sudden focal neurologic deficit within hours fits acute ischemic stroke until proven otherwise."
   },
   {
     topic: "Neurology",
-    vignette: "54F has sudden thunderclap headache, neck stiffness, and photophobia. Initial CT is normal.",
+    vignette: "54F has the worst headache of her life that began abruptly during exercise, with vomiting, neck stiffness, and photophobia.",
     answers: ["Tension headache", "Migraine", "Subarachnoid hemorrhage", "Cluster headache"],
     correct: 2,
-    explanation: "Thunderclap headache = subarachnoid hemorrhage until proven otherwise."
+    explanation: "Abrupt thunderclap headache with meningismus fits subarachnoid hemorrhage."
   },
   {
     topic: "Neurology",
-    vignette: "8YO has generalized seizure lasting 7 minutes and ongoing epileptiform activity.",
+    vignette: "8YO has a generalized convulsion that continues for more than 5 minutes and does not stop spontaneously.",
     answers: ["Simple febrile seizure", "Status epilepticus", "Absence seizure", "Syncope"],
     correct: 1,
-    explanation: "Seizure lasting ≥5 minutes = status epilepticus."
+    explanation: "A seizure lasting more than 5 minutes fits status epilepticus."
   },
   {
     topic: "Neurology",
-    vignette: "42F has acute unilateral facial paralysis involving the forehead and inability to close the eye.",
+    vignette: "42F wakes up with one-sided facial weakness involving the mouth, eye closure, and forehead, without arm or leg symptoms.",
     answers: ["Stroke", "Bell palsy", "Trigeminal neuralgia", "Myasthenia gravis"],
     correct: 1,
-    explanation: "Complete unilateral facial weakness including forehead = peripheral CN VII palsy."
+    explanation: "Complete unilateral facial weakness including forehead without limb deficits fits Bell palsy."
   },
   {
     topic: "Neurology",
-    vignette: "38M has ascending weakness, areflexia, and worsening respiratory effort after recent gastroenteritis.",
+    vignette: "38M develops progressive leg weakness that ascends over days after diarrhea. Reflexes are absent, and breathing feels harder.",
     answers: ["Transverse myelitis", "Guillain-Barré syndrome", "ALS", "Spinal cord compression"],
     correct: 1,
-    explanation: "Ascending weakness + areflexia after infection = GBS."
+    explanation: "Ascending weakness with areflexia after infection fits Guillain-Barré syndrome."
   },
   {
     topic: "Neurology",
-    vignette: "55F has progressive memory loss over years with impaired daily functioning and medial temporal atrophy.",
+    vignette: "55F has slowly progressive memory loss, difficulty managing finances, getting lost in familiar places, and impaired daily functioning.",
     answers: ["Vascular dementia", "Lewy body dementia", "Frontotemporal dementia", "Alzheimer disease"],
     correct: 3,
-    explanation: "Progressive memory-predominant dementia = Alzheimer disease."
+    explanation: "Gradual memory-predominant decline that impairs daily function fits Alzheimer disease."
   },
   {
     topic: "Neurology",
-    vignette: "31M has ptosis, diplopia, and weakness worse with use; anti-acetylcholine receptor antibodies are positive.",
+    vignette: "31M has drooping eyelids and double vision that worsen by evening, plus weakness that improves after rest.",
     answers: ["Myasthenia gravis", "Lambert-Eaton syndrome", "Polymyositis", "Thyroid eye disease"],
     correct: 0,
-    explanation: "Fatigable weakness + AChR antibodies = myasthenia gravis."
+    explanation: "Fatigable ocular and generalized weakness that improves with rest fits myasthenia gravis."
   },
   {
     topic: "Neurology",
-    vignette: "58M has asymmetric resting tremor, bradykinesia, cogwheel rigidity, and shuffling gait.",
+    vignette: "58M has slowly worsening hand tremor at rest, small handwriting, stiffness, slow movements, and a shuffling gait.",
     answers: ["Essential tremor", "Parkinson disease", "Cerebellar ataxia", "Dystonia"],
     correct: 1,
-    explanation: "Resting tremor + bradykinesia + rigidity = Parkinson disease."
+    explanation: "Rest tremor, bradykinesia, rigidity, and shuffling gait fit Parkinson disease."
   },
   {
     topic: "Neurology",
-    vignette: "24F has optic neuritis, prior transverse myelitis, and multiple periventricular white-matter lesions.",
+    vignette: "24F has episodes of vision loss, limb numbness, and imbalance that occurred months apart and partially resolved each time.",
     answers: ["TIA", "Migraine", "Multiple sclerosis", "Stroke"],
     correct: 2,
-    explanation: "Neurologic lesions separated in time and space = multiple sclerosis."
+    explanation: "Neurologic episodes separated in time and involving different CNS areas fit multiple sclerosis."
   },
   {
     topic: "Neurology",
-    vignette: "68M has episodic vertigo, unilateral hearing loss, tinnitus, and ear fullness.",
+    vignette: "68M has recurrent episodes of spinning vertigo lasting hours, with ringing, ear fullness, and fluctuating hearing loss in one ear.",
     answers: ["BPPV", "Vestibular neuritis", "Ménière disease", "Central vertigo"],
     correct: 2,
-    explanation: "Vertigo + hearing loss + tinnitus/aural fullness = Ménière disease."
+    explanation: "Recurrent vertigo with unilateral hearing symptoms and ear fullness fits Ménière disease."
   },
 
   // PSYCHIATRY
   {
     topic: "Psychiatry",
-    vignette: "32F has 3 weeks of depressed mood, anhedonia, insomnia, guilt, poor concentration, and suicidal thoughts.",
+    vignette: "32F has 3 weeks of low mood, loss of interest, insomnia, guilt, poor concentration, low energy, and thoughts of death.",
     answers: ["Adjustment disorder", "Major depressive disorder", "Persistent depressive disorder", "Bipolar disorder"],
     correct: 1,
-    explanation: "≥5 depressive symptoms for ≥2 weeks = major depressive disorder."
+    explanation: "Multiple depressive symptoms lasting more than 2 weeks with impairment fit major depressive disorder."
   },
   {
     topic: "Psychiatry",
-    vignette: "28M has 1 week of decreased sleep, grandiosity, pressured speech, impulsive spending, and hospitalization.",
+    vignette: "28M has one week of little sleep, pressured speech, grandiosity, risky spending, and irritability severe enough to require hospitalization.",
     answers: ["ADHD", "Mania", "Generalized anxiety disorder", "Hypomania"],
     correct: 1,
-    explanation: "Manic symptoms for ≥1 week or requiring hospitalization = mania."
+    explanation: "Elevated/irritable mood with decreased sleep, risky behavior, and hospitalization fits mania."
   },
   {
     topic: "Psychiatry",
-    vignette: "45M has excessive worry about work, health, and family on most days for 8 months.",
+    vignette: "45M has excessive worry about work, health, finances, and family on most days for many months, with muscle tension and poor sleep.",
     answers: ["Social anxiety disorder", "Generalized anxiety disorder", "Panic disorder", "Specific phobia"],
     correct: 1,
-    explanation: "Excessive worry about multiple domains for ≥6 months = GAD."
+    explanation: "Chronic excessive worry across multiple domains with somatic tension fits generalized anxiety disorder."
   },
   {
     topic: "Psychiatry",
-    vignette: "35F has recurrent sudden episodes of palpitations, sweating, dyspnea, and fear of dying.",
+    vignette: "35F has recurrent sudden episodes of palpitations, sweating, shortness of breath, and fear of dying, followed by worry about future attacks.",
     answers: ["Generalized anxiety disorder", "Specific phobia", "Panic disorder", "Social anxiety disorder"],
     correct: 2,
-    explanation: "Recurrent unexpected panic attacks = panic disorder."
+    explanation: "Unexpected panic attacks with persistent worry about recurrence fit panic disorder."
   },
   {
     topic: "Psychiatry",
-    vignette: "52M veteran has nightmares, intrusive memories, avoidance, and hypervigilance for 6 months.",
+    vignette: "52M veteran has nightmares, intrusive memories, avoidance of reminders, irritability, and hypervigilance months after combat trauma.",
     answers: ["Adjustment disorder", "PTSD", "Acute stress disorder", "Generalized anxiety disorder"],
     correct: 1,
-    explanation: "Trauma symptoms lasting >1 month = PTSD."
+    explanation: "Trauma exposure followed by intrusion, avoidance, and hyperarousal for months fits PTSD."
   },
   {
     topic: "Psychiatry",
-    vignette: "28F has intrusive contamination fears and repeatedly washes hands despite recognizing the behavior is excessive.",
+    vignette: "28F spends hours washing her hands because of intrusive contamination fears, even though she knows the behavior is excessive.",
     answers: ["Generalized anxiety disorder", "Specific phobia", "OCD", "Body dysmorphic disorder"],
     correct: 2,
-    explanation: "Obsessions + compulsions = OCD."
+    explanation: "Intrusive obsessions plus repetitive compulsions with distress fit OCD."
   },
   {
     topic: "Psychiatry",
-    vignette: "24M has hallucinations, delusions, disorganized speech, and functional decline for 8 months.",
+    vignette: "24M has months of social withdrawal, disorganized speech, auditory hallucinations, fixed paranoid beliefs, and declining function.",
     answers: ["Brief psychotic disorder", "Schizophreniform disorder", "Schizophrenia", "Delusional disorder"],
     correct: 2,
-    explanation: "Psychosis with functional decline for ≥6 months = schizophrenia."
+    explanation: "Chronic psychosis with functional decline over months fits schizophrenia."
   },
   {
     topic: "Psychiatry",
-    vignette: "41F has binge eating followed by vomiting and excessive exercise. BMI is normal.",
+    vignette: "41F repeatedly eats large amounts in secret, feels loss of control, then vomits and exercises intensely. Her BMI is normal.",
     answers: ["Anorexia nervosa", "Bulimia nervosa", "Binge eating disorder", "Avoidant restrictive food intake disorder"],
     correct: 1,
-    explanation: "Binge eating + compensatory behaviors + normal BMI = bulimia nervosa."
+    explanation: "Binge eating with compensatory behaviors and normal BMI fits bulimia nervosa."
   },
   {
     topic: "Psychiatry",
-    vignette: "49M has tremor, agitation, tachycardia, and hypertension 12 hours after his last drink.",
+    vignette: "49M with heavy alcohol use stops drinking and develops tremor, sweating, anxiety, tachycardia, and hypertension the next morning.",
     answers: ["Wernicke encephalopathy", "Alcohol withdrawal", "Delirium tremens", "Hepatic encephalopathy"],
     correct: 1,
-    explanation: "Autonomic hyperactivity within hours after stopping alcohol = alcohol withdrawal."
+    explanation: "Autonomic hyperactivity and tremor within hours after stopping alcohol fit alcohol withdrawal."
   },
   {
     topic: "Psychiatry",
-    vignette: "38M has grandiosity, need for admiration, entitlement, exploitative behavior, and lack of empathy.",
+    vignette: "38M has a long pattern of grandiosity, entitlement, exploiting others, needing admiration, and dismissing other people’s feelings.",
     answers: ["Borderline personality disorder", "Narcissistic personality disorder", "Antisocial personality disorder", "Histrionic personality disorder"],
     correct: 1,
-    explanation: "Grandiosity + need for admiration + lack of empathy = narcissistic personality disorder."
+    explanation: "Grandiosity, need for admiration, entitlement, and lack of empathy fit narcissistic personality disorder."
   },
 
   // RHEUMATOLOGY
   {
     topic: "Rheumatology",
-    vignette: "52F has symmetric MCP/PIP pain, morning stiffness for 2 hours, erosions, and positive RF.",
+    vignette: "52F has months of symmetric pain and swelling in her wrists and finger joints, with morning stiffness lasting more than an hour.",
     answers: ["Osteoarthritis", "Rheumatoid arthritis", "Systemic lupus erythematosus", "Gout"],
     correct: 1,
-    explanation: "Symmetric small-joint inflammatory arthritis = rheumatoid arthritis."
+    explanation: "Symmetric inflammatory small-joint arthritis with prolonged morning stiffness fits rheumatoid arthritis."
   },
   {
     topic: "Rheumatology",
-    vignette: "35F has malar rash, photosensitivity, oral ulcers, arthritis, positive ANA, and anti-dsDNA.",
+    vignette: "35F has photosensitive facial rash, oral ulcers, joint pain, fatigue, and intermittent pleuritic chest discomfort.",
     answers: ["Sjögren syndrome", "Systemic sclerosis", "Systemic lupus erythematosus", "Mixed connective tissue disease"],
     correct: 2,
-    explanation: "Malar rash + anti-dsDNA = SLE."
+    explanation: "Photosensitive rash, oral ulcers, arthritis, and serositis symptoms fit systemic lupus erythematosus."
   },
   {
     topic: "Rheumatology",
-    vignette: "48M has acute painful swollen knee. Arthrocentesis shows needle-shaped negatively birefringent crystals.",
+    vignette: "48M has sudden severe pain, redness, and swelling of one big toe after a weekend of alcohol and heavy meals.",
     answers: ["Rheumatoid arthritis", "Pseudogout", "Gout", "Septic arthritis"],
     correct: 2,
-    explanation: "Needle-shaped negatively birefringent crystals = gout."
+    explanation: "Acute intensely painful first-toe monoarthritis after alcohol/heavy meals fits gout."
   },
   {
     topic: "Rheumatology",
-    vignette: "64F has acute knee pain. Arthrocentesis shows rhomboid positively birefringent crystals.",
-    answers: ["Gout", "Pseudogout", "Rheumatoid arthritis", "Septic arthritis"],
+    vignette: "64F has sudden painful swelling of one knee. She has a history of osteoarthritis and recurrent similar knee attacks.",
+    answers: ["Gout", "Pseudogout", "Rheumatoid arthritis", "Polymyalgia rheumatica"],
     correct: 1,
-    explanation: "Rhomboid positively birefringent crystals = pseudogout."
+    explanation: "Older patient with recurrent acute knee monoarthritis and osteoarthritis history fits pseudogout."
   },
   {
     topic: "Rheumatology",
-    vignette: "67M has bilateral shoulder and hip aching, morning stiffness, and ESR 78.",
+    vignette: "67M has new aching and stiffness in both shoulders and hips, worse in the morning, without true muscle weakness.",
     answers: ["Rheumatoid arthritis", "Polymyalgia rheumatica", "Polymyositis", "Osteoarthritis"],
     correct: 1,
-    explanation: "Older patient + shoulder/hip stiffness + high ESR = polymyalgia rheumatica."
+    explanation: "Older patient with shoulder/hip girdle pain and morning stiffness without weakness fits polymyalgia rheumatica."
   },
   {
     topic: "Rheumatology",
-    vignette: "72F has temporal headache, jaw claudication, visual loss, and elevated ESR.",
+    vignette: "72F has new temporal headache, scalp tenderness while brushing hair, jaw pain while chewing, and transient vision loss.",
     answers: ["Polymyalgia rheumatica", "Giant cell arteritis", "Takayasu arteritis", "Polyarteritis nodosa"],
     correct: 1,
-    explanation: "Temporal headache + jaw claudication + visual symptoms = giant cell arteritis."
+    explanation: "Older patient with temporal headache, scalp tenderness, jaw claudication, and visual symptoms fits giant cell arteritis."
   },
   {
     topic: "Rheumatology",
-    vignette: "58M has tight skin of hands, Raynaud phenomenon, dysphagia, and anti-Scl-70 antibodies.",
+    vignette: "58M has progressive skin tightening of the fingers, Raynaud episodes, reflux, and difficulty swallowing solids.",
     answers: ["SLE", "Sjögren syndrome", "Systemic sclerosis", "Mixed connective tissue disease"],
     correct: 2,
-    explanation: "Skin tightening + Raynaud + esophageal dysmotility = systemic sclerosis."
+    explanation: "Skin tightening, Raynaud phenomenon, reflux, and dysphagia fit systemic sclerosis."
   },
   {
     topic: "Rheumatology",
-    vignette: "41M has inflammatory back pain, morning stiffness, sacroiliitis, and HLA-B27 positivity.",
+    vignette: "41M has chronic low back pain that improves with exercise, morning stiffness, and reduced spinal flexibility.",
     answers: ["Osteoarthritis", "Rheumatoid arthritis", "Ankylosing spondylitis", "Gout"],
     correct: 2,
-    explanation: "Inflammatory back pain + sacroiliitis = ankylosing spondylitis."
+    explanation: "Inflammatory back pain with morning stiffness and reduced spinal mobility fits ankylosing spondylitis."
   },
   {
     topic: "Rheumatology",
-    vignette: "44F has dry eyes, dry mouth, parotid enlargement, arthritis, and anti-Ro/SSA antibodies.",
+    vignette: "44F has persistent dry eyes, dry mouth, dental caries, parotid swelling, and aching joints.",
     answers: ["SLE", "Rheumatoid arthritis", "Sjögren syndrome", "Systemic sclerosis"],
     correct: 2,
-    explanation: "Dry eyes/mouth + anti-Ro/SSA = Sjögren syndrome."
+    explanation: "Dry eyes, dry mouth, parotid swelling, dental issues, and arthralgias fit Sjögren syndrome."
   },
   {
     topic: "Rheumatology",
-    vignette: "52M has palpable purpura, hematuria, pulmonary symptoms, and p-ANCA positivity.",
+    vignette: "52M has palpable purpura on the legs, hematuria, cough with blood-streaked sputum, and worsening kidney function.",
     answers: ["Polyarteritis nodosa", "Microscopic polyangiitis", "Granulomatosis with polyangiitis", "Takayasu arteritis"],
     correct: 1,
-    explanation: "Small-vessel vasculitis + p-ANCA + renal/pulmonary findings = microscopic polyangiitis."
-  },
+    explanation: "Small-vessel skin, kidney, and pulmonary involvement fits microscopic polyangiitis."
+  }
 ];
 
 export default function ReflexTrainer() {
