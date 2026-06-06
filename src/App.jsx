@@ -125,13 +125,13 @@ export default function ReflexTrainer() {
   const [gameStarted, setGameStarted] = useState(false);
   const [sessionComplete, setSessionComplete] = useState(false);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [sessionQuestions, setSessionQuestions] = useState<any[]>([]);
+  const [sessionQuestions, setSessionQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [answered, setAnswered] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-  const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
 
@@ -150,6 +150,7 @@ export default function ReflexTrainer() {
     setStreak(0);
     setAnswered(false);
     setSelectedAnswer(null);
+    setShuffledAnswers([]);
     setTimeLeft(15);
     setTimerActive(true);
     setSessionComplete(false);
@@ -192,10 +193,11 @@ export default function ReflexTrainer() {
     return () => clearInterval(interval);
   }, [gameStarted, timerActive, answered, sessionComplete]);
 
-  const handleAnswer = (index: number) => {
+  const handleAnswer = (index) => {
     if (!current) return;
 
-    const isCorrect = shuffledAnswers[index] === current.answers[current.correct];
+    const isCorrect =
+      shuffledAnswers[index] === current.answers[current.correct];
 
     setSelectedAnswer(index);
     setAnswered(true);
@@ -251,14 +253,6 @@ export default function ReflexTrainer() {
             </p>
           </div>
         </div>
-      </div>
-    );
-  }
-
-  if (!current) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
       </div>
     );
   }
@@ -341,10 +335,17 @@ export default function ReflexTrainer() {
     );
   }
 
+  if (!current) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 p-4 md:p-8">
       <div className="max-w-2xl mx-auto">
-        {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">
             🏥 STEP 2 CK Reflex Trainer
@@ -354,7 +355,6 @@ export default function ReflexTrainer() {
           </p>
         </div>
 
-        {/* Stats Bar */}
         <div className="grid grid-cols-4 gap-3 mb-6">
           <div className="bg-white/10 rounded-lg p-3 text-center">
             <div className="text-2xl font-bold text-green-400">{score}</div>
@@ -379,7 +379,6 @@ export default function ReflexTrainer() {
           </div>
         </div>
 
-        {/* Question Card */}
         <div className="bg-white/95 rounded-xl p-8 mb-6 shadow-2xl">
           <div className="mb-4 flex justify-between items-center">
             <div>
@@ -405,7 +404,6 @@ export default function ReflexTrainer() {
             </div>
           </div>
 
-          {/* Timer Bar */}
           <div className="w-full h-2 bg-slate-300 rounded-full mb-6 overflow-hidden">
             <div
               className={`h-full transition-all ${
@@ -423,7 +421,6 @@ export default function ReflexTrainer() {
             {current.vignette}
           </h2>
 
-          {/* Answer Buttons */}
           <div className="space-y-3">
             {shuffledAnswers.map((answer, idx) => {
               const isCorrect = answer === current.answers[current.correct];
@@ -455,7 +452,6 @@ export default function ReflexTrainer() {
             })}
           </div>
 
-          {/* Explanation */}
           {answered && (
             <div
               className={`mt-6 p-4 rounded ${
@@ -476,7 +472,6 @@ export default function ReflexTrainer() {
           )}
         </div>
 
-        {/* Navigation */}
         <div className="flex gap-3 justify-center">
           {answered && (
             <button
