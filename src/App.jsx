@@ -123,23 +123,24 @@ const questionBank = [
 
 export default function ReflexTrainer() {
   const [gameStarted, setGameStarted] = useState(false);
+  const [sessionComplete, setSessionComplete] = useState(false);
   const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [sessionQuestions, setSessionQuestions] = useState([]);
+  const [sessionQuestions, setSessionQuestions] = useState<any[]>([]);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [answered, setAnswered] = useState(false);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [shuffledAnswers, setShuffledAnswers] = useState([]);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
   const [timeLeft, setTimeLeft] = useState(15);
   const [timerActive, setTimerActive] = useState(false);
 
   const generateNewSession = () => {
-    const topics = [...new Set(questionBank.map(q => q.topic))];
+    const topics = [...new Set(questionBank.map((q) => q.topic))];
     const selectedTopics = topics.sort(() => Math.random() - 0.5).slice(0, 10);
 
-    const newQuestions = selectedTopics.map(topic => {
-      const topicQuestions = questionBank.filter(q => q.topic === topic);
+    const newQuestions = selectedTopics.map((topic) => {
+      const topicQuestions = questionBank.filter((q) => q.topic === topic);
       return topicQuestions[Math.floor(Math.random() * topicQuestions.length)];
     });
 
@@ -151,6 +152,7 @@ export default function ReflexTrainer() {
     setSelectedAnswer(null);
     setTimeLeft(15);
     setTimerActive(true);
+    setSessionComplete(false);
   };
 
   const startGame = () => {
@@ -161,7 +163,7 @@ export default function ReflexTrainer() {
   const current = sessionQuestions[currentQIndex];
 
   useEffect(() => {
-    if (!gameStarted || !current) return;
+    if (!gameStarted || !current || sessionComplete) return;
 
     const shuffled = [...current.answers].sort(() => Math.random() - 0.5);
     setShuffledAnswers(shuffled);
@@ -169,27 +171,30 @@ export default function ReflexTrainer() {
     setSelectedAnswer(null);
     setTimeLeft(15);
     setTimerActive(true);
-  }, [currentQIndex, current, gameStarted]);
+  }, [currentQIndex, current, gameStarted, sessionComplete]);
 
   useEffect(() => {
-    if (!gameStarted || !timerActive || answered) return;
+    if (!gameStarted || !timerActive || answered || sessionComplete) return;
 
     const interval = setInterval(() => {
-      setTimeLeft(prev => {
+      setTimeLeft((prev) => {
         if (prev <= 1) {
           setTimerActive(false);
           setAnswered(true);
           setStreak(0);
           return 0;
         }
+
         return prev - 1;
       });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [gameStarted, timerActive, answered]);
+  }, [gameStarted, timerActive, answered, sessionComplete]);
 
-  const handleAnswer = (index) => {
+  const handleAnswer = (index: number) => {
+    if (!current) return;
+
     const isCorrect = shuffledAnswers[index] === current.answers[current.correct];
 
     setSelectedAnswer(index);
@@ -197,10 +202,12 @@ export default function ReflexTrainer() {
     setTimerActive(false);
 
     if (isCorrect) {
-      setScore(score + 1);
-      setStreak(streak + 1);
-      if (streak + 1 > bestStreak) {
-        setBestStreak(streak + 1);
+      const nextStreak = streak + 1;
+      setScore((prev) => prev + 1);
+      setStreak(nextStreak);
+
+      if (nextStreak > bestStreak) {
+        setBestStreak(nextStreak);
       }
     } else {
       setStreak(0);
@@ -209,13 +216,15 @@ export default function ReflexTrainer() {
 
   const nextQuestion = () => {
     if (currentQIndex < sessionQuestions.length - 1) {
-      setCurrentQIndex(currentQIndex + 1);
+      setCurrentQIndex((prev) => prev + 1);
     } else {
-      generateNewSession();
+      setSessionComplete(true);
+      setTimerActive(false);
     }
   };
 
-  const accuracy = Math.round((score / (currentQIndex + (answered ? 1 : 0))) * 100) || 0;
+  const accuracy =
+    Math.round((score / (currentQIndex + (answered ? 1 : 0))) * 100) || 0;
 
   if (!gameStarted) {
     return (
@@ -254,13 +263,95 @@ export default function ReflexTrainer() {
     );
   }
 
+  if (sessionComplete) {
+    const finalAccuracy =
+      Math.round((score / sessionQuestions.length) * 100) || 0;
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-6">
+        <div className="max-w-2xl w-full text-center">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Session Complete
+            </h1>
+
+            <p className="text-indigo-200 text-lg mb-8">
+              Nice work. Here is how you did this round.
+            </p>
+
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="bg-white/10 rounded-xl p-4">
+                <div className="text-3xl font-bold text-green-400">
+                  {score}/10
+                </div>
+                <div className="text-sm text-indigo-200 mt-1">Correct</div>
+              </div>
+
+              <div className="bg-white/10 rounded-xl p-4">
+                <div className="text-3xl font-bold text-blue-400">
+                  {finalAccuracy}%
+                </div>
+                <div className="text-sm text-indigo-200 mt-1">Accuracy</div>
+              </div>
+
+              <div className="bg-white/10 rounded-xl p-4">
+                <div className="text-3xl font-bold text-orange-400">
+                  {bestStreak}
+                </div>
+                <div className="text-sm text-indigo-200 mt-1">
+                  Best streak
+                </div>
+              </div>
+            </div>
+
+            <p className="text-indigo-100 text-base mb-8 leading-relaxed">
+              The goal is not just to get questions right, but to build faster recognition of clinical patterns under time pressure.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={generateNewSession}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition"
+              >
+                Start New Session
+              </button>
+
+              <button
+                onClick={() => {
+                  setGameStarted(false);
+                  setSessionComplete(false);
+                  setTimerActive(false);
+                  setSessionQuestions([]);
+                  setCurrentQIndex(0);
+                  setScore(0);
+                  setStreak(0);
+                  setAnswered(false);
+                  setSelectedAnswer(null);
+                  setShuffledAnswers([]);
+                  setTimeLeft(15);
+                }}
+                className="bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-8 rounded-full transition border border-white/20"
+              >
+                Back to Start
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 p-4 md:p-8">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">🏥 STEP 2 CK Reflex Trainer</h1>
-          <p className="text-indigo-200">Random 10-Question Session • {sessionQuestions.length} questions loaded</p>
+          <h1 className="text-4xl font-bold text-white mb-2">
+            🏥 STEP 2 CK Reflex Trainer
+          </h1>
+          <p className="text-indigo-200">
+            Random 10-Question Session • {sessionQuestions.length} questions loaded
+          </p>
         </div>
 
         {/* Stats Bar */}
@@ -269,14 +360,19 @@ export default function ReflexTrainer() {
             <div className="text-2xl font-bold text-green-400">{score}</div>
             <div className="text-xs text-indigo-200">Correct</div>
           </div>
+
           <div className="bg-white/10 rounded-lg p-3 text-center">
             <div className="text-2xl font-bold text-yellow-400">{streak}</div>
             <div className="text-xs text-indigo-200">Streak</div>
           </div>
+
           <div className="bg-white/10 rounded-lg p-3 text-center">
-            <div className="text-2xl font-bold text-orange-400">{bestStreak}</div>
+            <div className="text-2xl font-bold text-orange-400">
+              {bestStreak}
+            </div>
             <div className="text-xs text-indigo-200">Best</div>
           </div>
+
           <div className="bg-white/10 rounded-lg p-3 text-center">
             <div className="text-2xl font-bold text-blue-400">{accuracy}%</div>
             <div className="text-xs text-indigo-200">Accuracy</div>
@@ -290,11 +386,21 @@ export default function ReflexTrainer() {
               <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
                 {current.topic}
               </span>
+
               <span className="ml-2 text-slate-500 text-sm">
                 Q{currentQIndex + 1}/10
               </span>
             </div>
-            <div className={`text-3xl font-bold ${timeLeft > 5 ? 'text-green-600' : timeLeft > 2 ? 'text-yellow-600' : 'text-red-600'}`}>
+
+            <div
+              className={`text-3xl font-bold ${
+                timeLeft > 5
+                  ? "text-green-600"
+                  : timeLeft > 2
+                  ? "text-yellow-600"
+                  : "text-red-600"
+              }`}
+            >
               {timeLeft}s
             </div>
           </div>
@@ -302,7 +408,13 @@ export default function ReflexTrainer() {
           {/* Timer Bar */}
           <div className="w-full h-2 bg-slate-300 rounded-full mb-6 overflow-hidden">
             <div
-              className={`h-full transition-all ${timeLeft > 5 ? 'bg-green-500' : timeLeft > 2 ? 'bg-yellow-500' : 'bg-red-500'}`}
+              className={`h-full transition-all ${
+                timeLeft > 5
+                  ? "bg-green-500"
+                  : timeLeft > 2
+                  ? "bg-yellow-500"
+                  : "bg-red-500"
+              }`}
               style={{ width: `${(timeLeft / 15) * 100}%` }}
             />
           </div>
@@ -316,11 +428,18 @@ export default function ReflexTrainer() {
             {shuffledAnswers.map((answer, idx) => {
               const isCorrect = answer === current.answers[current.correct];
               const isSelected = idx === selectedAnswer;
-              let buttonStyle = "bg-white border-2 border-indigo-200 hover:border-indigo-400 text-slate-700";
+
+              let buttonStyle =
+                "bg-white border-2 border-indigo-200 hover:border-indigo-400 text-slate-700";
 
               if (answered) {
-                if (isCorrect) buttonStyle = "bg-green-100 border-2 border-green-500 text-green-900";
-                else if (isSelected && !isCorrect) buttonStyle = "bg-red-100 border-2 border-red-500 text-red-900";
+                if (isCorrect) {
+                  buttonStyle =
+                    "bg-green-100 border-2 border-green-500 text-green-900";
+                } else if (isSelected && !isCorrect) {
+                  buttonStyle =
+                    "bg-red-100 border-2 border-red-500 text-red-900";
+                }
               }
 
               return (
@@ -338,8 +457,18 @@ export default function ReflexTrainer() {
 
           {/* Explanation */}
           {answered && (
-            <div className={`mt-6 p-4 rounded ${timeLeft === 0 ? 'bg-red-50 border-l-4 border-red-500' : 'bg-amber-50 border-l-4 border-amber-500'}`}>
-              <p className={`text-sm font-semibold ${timeLeft === 0 ? 'text-red-900' : 'text-amber-900'}`}>
+            <div
+              className={`mt-6 p-4 rounded ${
+                timeLeft === 0
+                  ? "bg-red-50 border-l-4 border-red-500"
+                  : "bg-amber-50 border-l-4 border-amber-500"
+              }`}
+            >
+              <p
+                className={`text-sm font-semibold ${
+                  timeLeft === 0 ? "text-red-900" : "text-amber-900"
+                }`}
+              >
                 {timeLeft === 0 ? "⏱️ Time's up! " : "💡 "}
                 {current.explanation}
               </p>
@@ -354,9 +483,12 @@ export default function ReflexTrainer() {
               onClick={nextQuestion}
               className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition"
             >
-              {currentQIndex < sessionQuestions.length - 1 ? 'Next Question →' : 'New Session →'}
+              {currentQIndex < sessionQuestions.length - 1
+                ? "Next Question →"
+                : "View Results →"}
             </button>
           )}
+
           <button
             onClick={generateNewSession}
             className="bg-slate-600 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2"
