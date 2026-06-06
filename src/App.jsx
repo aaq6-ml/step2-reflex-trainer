@@ -831,25 +831,25 @@ export default function ReflexTrainer() {
 
   if (!gameStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-6">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
         <div className="max-w-2xl w-full text-center">
-          <div className="bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-6 md:p-10 shadow-2xl backdrop-blur">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
               STEP 2 CK Reflex Trainer
             </h1>
 
-            <p className="text-indigo-200 text-lg md:text-xl mb-8 leading-relaxed">
+            <p className="text-indigo-200 text-base md:text-xl mb-6 leading-relaxed">
               Build faster clinical pattern recognition with short, timed Step 2 CK-style reflex questions.
             </p>
 
             <button
               onClick={startGame}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full text-lg transition shadow-lg"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-7 rounded-full text-base md:text-lg transition shadow-lg"
             >
               Start Training your Reflexes
             </button>
 
-            <p className="text-indigo-300 text-sm mt-6">
+            <p className="text-indigo-300 text-sm mt-5">
               Random 10-question sessions • 15 seconds per question
             </p>
           </div>
@@ -863,50 +863,54 @@ export default function ReflexTrainer() {
       Math.round((score / sessionQuestions.length) * 100) || 0;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-6">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-4">
         <div className="max-w-2xl w-full text-center">
-          <div className="bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-6 md:p-10 shadow-2xl backdrop-blur">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
               Session Complete
             </h1>
 
-            <p className="text-indigo-200 text-lg mb-8">
+            <p className="text-indigo-200 text-base md:text-lg mb-6">
               Nice work. Here is how you did this round.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="bg-white/10 rounded-xl p-4">
-                <div className="text-3xl font-bold text-green-400">
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              <div className="bg-white/10 rounded-xl p-3 md:p-4">
+                <div className="text-2xl md:text-3xl font-bold text-green-400">
                   {score}/10
                 </div>
-                <div className="text-sm text-indigo-200 mt-1">Correct</div>
+                <div className="text-xs md:text-sm text-indigo-200 mt-1">
+                  Correct
+                </div>
               </div>
 
-              <div className="bg-white/10 rounded-xl p-4">
-                <div className="text-3xl font-bold text-blue-400">
+              <div className="bg-white/10 rounded-xl p-3 md:p-4">
+                <div className="text-2xl md:text-3xl font-bold text-blue-400">
                   {finalAccuracy}%
                 </div>
-                <div className="text-sm text-indigo-200 mt-1">Accuracy</div>
+                <div className="text-xs md:text-sm text-indigo-200 mt-1">
+                  Accuracy
+                </div>
               </div>
 
-              <div className="bg-white/10 rounded-xl p-4">
-                <div className="text-3xl font-bold text-orange-400">
+              <div className="bg-white/10 rounded-xl p-3 md:p-4">
+                <div className="text-2xl md:text-3xl font-bold text-orange-400">
                   {bestStreak}
                 </div>
-                <div className="text-sm text-indigo-200 mt-1">
+                <div className="text-xs md:text-sm text-indigo-200 mt-1">
                   Best streak
                 </div>
               </div>
             </div>
 
-            <p className="text-indigo-100 text-base mb-8 leading-relaxed">
+            <p className="text-indigo-100 text-sm md:text-base mb-6 leading-relaxed">
               The goal is not just to get questions right, but to build faster recognition of clinical patterns under time pressure.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={generateNewSession}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-7 rounded-full transition"
               >
                 Start New Session
               </button>
@@ -925,7 +929,7 @@ export default function ReflexTrainer() {
                   setShuffledAnswers([]);
                   setTimeLeft(15);
                 }}
-                className="bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-8 rounded-full transition border border-white/20"
+                className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-7 rounded-full transition border border-white/20"
               >
                 Back to Start
               </button>
@@ -945,55 +949,70 @@ export default function ReflexTrainer() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 p-2 md:p-4">
       <div className="max-w-2xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">
+        <div className="mb-3 md:mb-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-1">
             🏥 STEP 2 CK Reflex Trainer
           </h1>
-          <p className="text-indigo-200">
+
+          <p className="text-indigo-200 text-sm md:text-base">
             Random 10-Question Session • {sessionQuestions.length} questions loaded
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-3 mb-6">
-          <div className="bg-white/10 rounded-lg p-3 text-center">
-            <div className="text-2xl font-bold text-green-400">{score}</div>
-            <div className="text-xs text-indigo-200">Correct</div>
+        <div className="grid grid-cols-4 gap-2 mb-3 md:mb-4">
+          <div className="bg-white/10 rounded-lg p-2 text-center">
+            <div className="text-xl md:text-2xl font-bold text-green-400">
+              {score}
+            </div>
+            <div className="text-[11px] md:text-xs text-indigo-200">
+              Correct
+            </div>
           </div>
 
-          <div className="bg-white/10 rounded-lg p-3 text-center">
-            <div className="text-2xl font-bold text-yellow-400">{streak}</div>
-            <div className="text-xs text-indigo-200">Streak</div>
+          <div className="bg-white/10 rounded-lg p-2 text-center">
+            <div className="text-xl md:text-2xl font-bold text-yellow-400">
+              {streak}
+            </div>
+            <div className="text-[11px] md:text-xs text-indigo-200">
+              Streak
+            </div>
           </div>
 
-          <div className="bg-white/10 rounded-lg p-3 text-center">
-            <div className="text-2xl font-bold text-orange-400">
+          <div className="bg-white/10 rounded-lg p-2 text-center">
+            <div className="text-xl md:text-2xl font-bold text-orange-400">
               {bestStreak}
             </div>
-            <div className="text-xs text-indigo-200">Best</div>
+            <div className="text-[11px] md:text-xs text-indigo-200">
+              Best
+            </div>
           </div>
 
-          <div className="bg-white/10 rounded-lg p-3 text-center">
-            <div className="text-2xl font-bold text-blue-400">{accuracy}%</div>
-            <div className="text-xs text-indigo-200">Accuracy</div>
+          <div className="bg-white/10 rounded-lg p-2 text-center">
+            <div className="text-xl md:text-2xl font-bold text-blue-400">
+              {accuracy}%
+            </div>
+            <div className="text-[11px] md:text-xs text-indigo-200">
+              Accuracy
+            </div>
           </div>
         </div>
 
-        <div className="bg-white/95 rounded-xl p-8 mb-6 shadow-2xl">
-          <div className="mb-4 flex justify-between items-center">
+        <div className="bg-white/95 rounded-xl p-4 md:p-5 mb-3 md:mb-4 shadow-2xl">
+          <div className="mb-3 flex justify-between items-center gap-3">
             <div>
-              <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold">
+              <span className="inline-block bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full text-xs md:text-sm font-semibold">
                 {current.topic}
               </span>
 
-              <span className="ml-2 text-slate-500 text-sm">
+              <span className="ml-2 text-slate-500 text-xs md:text-sm">
                 Q{currentQIndex + 1}/10
               </span>
             </div>
 
             <div
-              className={`text-3xl font-bold ${
+              className={`text-2xl md:text-3xl font-bold ${
                 timeLeft > 5
                   ? "text-green-600"
                   : timeLeft > 2
@@ -1005,7 +1024,7 @@ export default function ReflexTrainer() {
             </div>
           </div>
 
-          <div className="w-full h-2 bg-slate-300 rounded-full mb-6 overflow-hidden">
+          <div className="w-full h-1.5 md:h-2 bg-slate-300 rounded-full mb-4 overflow-hidden">
             <div
               className={`h-full transition-all ${
                 timeLeft > 5
@@ -1018,11 +1037,11 @@ export default function ReflexTrainer() {
             />
           </div>
 
-          <h2 className="text-xl font-bold text-slate-800 mb-8 leading-relaxed">
+          <h2 className="text-base md:text-lg font-bold text-slate-800 mb-4 leading-snug">
             {current.vignette}
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             {shuffledAnswers.map((answer, idx) => {
               const isCorrect = answer === current.answers[current.correct];
               const isSelected = idx === selectedAnswer;
@@ -1045,7 +1064,7 @@ export default function ReflexTrainer() {
                   key={idx}
                   onClick={() => !answered && handleAnswer(idx)}
                   disabled={answered || !timerActive}
-                  className={`w-full p-4 rounded-lg font-medium text-left transition-all ${buttonStyle} disabled:cursor-default`}
+                  className={`w-full p-2.5 md:p-3 rounded-lg font-medium text-left text-sm md:text-base leading-snug transition-all ${buttonStyle} disabled:cursor-default`}
                 >
                   {answer}
                 </button>
@@ -1055,14 +1074,14 @@ export default function ReflexTrainer() {
 
           {answered && (
             <div
-              className={`mt-6 p-4 rounded ${
+              className={`mt-3 p-3 rounded ${
                 timeLeft === 0
                   ? "bg-red-50 border-l-4 border-red-500"
                   : "bg-amber-50 border-l-4 border-amber-500"
               }`}
             >
               <p
-                className={`text-sm font-semibold ${
+                className={`text-xs md:text-sm font-semibold leading-snug ${
                   timeLeft === 0 ? "text-red-900" : "text-amber-900"
                 }`}
               >
@@ -1073,11 +1092,11 @@ export default function ReflexTrainer() {
           )}
         </div>
 
-        <div className="flex gap-3 justify-center">
+        <div className="flex gap-2 justify-center">
           {answered && (
             <button
               onClick={nextQuestion}
-              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition"
+              className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-lg transition text-sm md:text-base"
             >
               {currentQIndex < sessionQuestions.length - 1
                 ? "Next Question →"
@@ -1087,7 +1106,7 @@ export default function ReflexTrainer() {
 
           <button
             onClick={generateNewSession}
-            className="bg-slate-600 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2"
+            className="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2.5 px-4 rounded-lg transition flex items-center gap-2 text-sm md:text-base"
           >
             🔄 New Session
           </button>
