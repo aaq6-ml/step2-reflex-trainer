@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const questionBank = [
-  // CARDIOLOGY (10 questions)
+// CARDIOLOGY (10 questions)
   { topic: "Cardiology", vignette: "58M with HTN presents with SOB, orthopnea, and bilateral crackles. BNP is elevated.", answers: ["Acute MI", "Acute decompensated heart failure", "Pulmonary embolism", "Acute pneumonia"], correct: 1, explanation: "Classic acute heart failure: SOB, orthopnea, crackles, elevated BNP." },
   { topic: "Cardiology", vignette: "62F with 3 weeks exertional chest pressure and dyspnea. EKG shows new T-wave inversions V2-V4.", answers: ["Stable angina", "Unstable angina/NSTEMI", "Aortic stenosis", "Pericarditis"], correct: 1, explanation: "T-wave inversions + exertional symptoms = NSTEMI until proven otherwise." },
   { topic: "Cardiology", vignette: "45M sudden-onset pleuritic chest pain and ST elevation aVR. BP 180/100, HR 110.", answers: ["Acute MI", "Aortic dissection", "Spontaneous pneumothorax", "Pericarditis"], correct: 1, explanation: "Sudden pleuritic pain + ST elevation + hypertension = aortic dissection." },
@@ -119,10 +119,10 @@ const questionBank = [
   { topic: "Rheumatology", vignette: "58M with tight skin of face and hands, esophageal dysmotility, Raynaud phenomenon. Anti-Scl70 antibody positive.", answers: ["SLE", "Sjögren syndrome", "Systemic sclerosis", "Mixed connective tissue"], correct: 2, explanation: "Skin tightness + esophageal dysmotility + anti-Scl70 = systemic sclerosis (scleroderma)." },
   { topic: "Rheumatology", vignette: "41M with inflammatory back pain, morning stiffness 1.5 hours, sacroiliitis on imaging. HLA-B27 positive.", answers: ["Osteoarthritis", "Rheumatoid arthritis", "Ankylosing spondylitis", "Gout"], correct: 2, explanation: "Inflammatory back pain + sacroiliitis + HLA-B27 = ankylosing spondylitis." },
   { topic: "Rheumatology", vignette: "44F with arthritis, dry eyes, dry mouth, anti-Ro/SSA and anti-La/SSB antibodies positive.", answers: ["SLE", "Rheumatoid arthritis", "Sjögren syndrome", "Scleroderma"], correct: 2, explanation: "Anti-Ro/SSA and anti-La/SSB = Sjögren syndrome." },
-  { topic: "Rheumatology", vignette: "52M with skin ulcers, abdominal pain, hematuria, palpable purpura on lower extremities. P-ANCA positive.", answers: ["Polyarteritis nodosa", "Microscopic polyangiitis", "GPA", "Takayasu"], correct: 1, explanation: "P-ANCA with necrotizing vasculitis + palpable purpura = microscopic polyangiitis." },
-];
+  { topic: "Rheumatology", vignette: "52M with skin ulcers, abdominal pain, hematuria, palpable purpura on lower extremities. P-ANCA positive.", answers: ["Polyarteritis nodosa", "Microscopic polyangiitis", "GPA", "Takayasu"], correct: 1, explanation: "P-ANCA with necrotizing vasculitis + palpable purpura = microscopic polyangiitis." },];
 
 export default function ReflexTrainer() {
+  const [gameStarted, setGameStarted] = useState(false);
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [sessionQuestions, setSessionQuestions] = useState([]);
   const [score, setScore] = useState(0);
@@ -132,19 +132,12 @@ export default function ReflexTrainer() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [timeLeft, setTimeLeft] = useState(15);
-  const [timerActive, setTimerActive] = useState(true);
-
-  // Initialize random questions on mount
-  useEffect(() => {
-    generateNewSession();
-  }, []);
+  const [timerActive, setTimerActive] = useState(false);
 
   const generateNewSession = () => {
-    // Get unique topics
     const topics = [...new Set(questionBank.map(q => q.topic))];
     const selectedTopics = topics.sort(() => Math.random() - 0.5).slice(0, 10);
-    
-    // Get one random question from each selected topic
+
     const newQuestions = selectedTopics.map(topic => {
       const topicQuestions = questionBank.filter(q => q.topic === topic);
       return topicQuestions[Math.floor(Math.random() * topicQuestions.length)];
@@ -160,20 +153,26 @@ export default function ReflexTrainer() {
     setTimerActive(true);
   };
 
+  const startGame = () => {
+    setGameStarted(true);
+    generateNewSession();
+  };
+
   const current = sessionQuestions[currentQIndex];
 
   useEffect(() => {
-    if (!current) return;
+    if (!gameStarted || !current) return;
+
     const shuffled = [...current.answers].sort(() => Math.random() - 0.5);
     setShuffledAnswers(shuffled);
     setAnswered(false);
     setSelectedAnswer(null);
     setTimeLeft(15);
     setTimerActive(true);
-  }, [currentQIndex, current]);
+  }, [currentQIndex, current, gameStarted]);
 
   useEffect(() => {
-    if (!timerActive || answered) return;
+    if (!gameStarted || !timerActive || answered) return;
 
     const interval = setInterval(() => {
       setTimeLeft(prev => {
@@ -188,13 +187,14 @@ export default function ReflexTrainer() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [timerActive, answered]);
+  }, [gameStarted, timerActive, answered]);
 
   const handleAnswer = (index) => {
     const isCorrect = shuffledAnswers[index] === current.answers[current.correct];
-    
+
     setSelectedAnswer(index);
     setAnswered(true);
+    setTimerActive(false);
 
     if (isCorrect) {
       setScore(score + 1);
@@ -217,8 +217,41 @@ export default function ReflexTrainer() {
 
   const accuracy = Math.round((score / (currentQIndex + (answered ? 1 : 0))) * 100) || 0;
 
+  if (!gameStarted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center p-6">
+        <div className="max-w-2xl w-full text-center">
+          <div className="bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              STEP 2 CK Reflex Trainer
+            </h1>
+
+            <p className="text-indigo-200 text-lg md:text-xl mb-8 leading-relaxed">
+              Build faster clinical pattern recognition with short, timed Step 2 CK-style reflex questions.
+            </p>
+
+            <button
+              onClick={startGame}
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full text-lg transition shadow-lg"
+            >
+              Start Training your Reflexes
+            </button>
+
+            <p className="text-indigo-300 text-sm mt-6">
+              Random 10-question sessions • 15 seconds per question
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (!current) {
-    return <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center"><div className="text-white text-2xl">Loading...</div></div>;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 flex items-center justify-center">
+        <div className="text-white text-2xl">Loading...</div>
+      </div>
+    );
   }
 
   return (
@@ -284,7 +317,7 @@ export default function ReflexTrainer() {
               const isCorrect = answer === current.answers[current.correct];
               const isSelected = idx === selectedAnswer;
               let buttonStyle = "bg-white border-2 border-indigo-200 hover:border-indigo-400 text-slate-700";
-              
+
               if (answered) {
                 if (isCorrect) buttonStyle = "bg-green-100 border-2 border-green-500 text-green-900";
                 else if (isSelected && !isCorrect) buttonStyle = "bg-red-100 border-2 border-red-500 text-red-900";
@@ -307,7 +340,8 @@ export default function ReflexTrainer() {
           {answered && (
             <div className={`mt-6 p-4 rounded ${timeLeft === 0 ? 'bg-red-50 border-l-4 border-red-500' : 'bg-amber-50 border-l-4 border-amber-500'}`}>
               <p className={`text-sm font-semibold ${timeLeft === 0 ? 'text-red-900' : 'text-amber-900'}`}>
-                {timeLeft === 0 ? '⏱️ Time\'s up! ' : '💡 '}{current.explanation}
+                {timeLeft === 0 ? "⏱️ Time's up! " : "💡 "}
+                {current.explanation}
               </p>
             </div>
           )}
