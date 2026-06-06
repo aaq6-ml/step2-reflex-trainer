@@ -733,7 +733,7 @@ export default function ReflexTrainer() {
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(10);
   const [timerActive, setTimerActive] = useState(false);
 
   const generateNewSession = () => {
@@ -752,7 +752,7 @@ export default function ReflexTrainer() {
     setAnswered(false);
     setSelectedAnswer(null);
     setShuffledAnswers([]);
-    setTimeLeft(15);
+    setTimeLeft(10);
     setTimerActive(true);
     setSessionComplete(false);
   };
@@ -771,7 +771,7 @@ export default function ReflexTrainer() {
     setShuffledAnswers(shuffled);
     setAnswered(false);
     setSelectedAnswer(null);
-    setTimeLeft(15);
+    setTimeLeft(10);
     setTimerActive(true);
   }, [currentQIndex, current, gameStarted, sessionComplete]);
 
@@ -850,7 +850,7 @@ export default function ReflexTrainer() {
             </button>
 
             <p className="text-indigo-300 text-sm mt-5">
-              Random 10-question sessions • 15 seconds per question
+              Random 10-question sessions • 10 seconds per question
             </p>
           </div>
         </div>
@@ -927,7 +927,7 @@ export default function ReflexTrainer() {
                   setAnswered(false);
                   setSelectedAnswer(null);
                   setShuffledAnswers([]);
-                  setTimeLeft(15);
+                  setTimeLeft(10);
                 }}
                 className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-7 rounded-full transition border border-white/20"
               >
@@ -1033,7 +1033,7 @@ export default function ReflexTrainer() {
                   ? "bg-yellow-500"
                   : "bg-red-500"
               }`}
-              style={{ width: `${(timeLeft / 15) * 100}%` }}
+              style={{ width: `${(timeLeft / 10) * 100}%` }}
             />
           </div>
 
