@@ -1,6 +1,7 @@
 // App.jsx
 
 import React, { useEffect, useMemo, useState } from "react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 
 const rawQuestionBank = [
@@ -9582,6 +9583,7 @@ export default function ReflexTrainer() {
         </div>
       </div>
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
