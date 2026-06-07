@@ -9123,6 +9123,12 @@ export default function ReflexTrainer() {
           >
             🔄 New Session
           </button>
+          <button
+  onClick={resetToStart}
+  className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-4 rounded-lg transition border border-white/20 text-sm md:text-base"
+>
+  ← Mode Select
+</button>
         </div>
       </div>
     </div>
