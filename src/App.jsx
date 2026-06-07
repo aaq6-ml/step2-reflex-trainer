@@ -1,6 +1,7 @@
 // App.jsx
 
 import React, { useEffect, useMemo, useState } from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 const rawQuestionBank = [
   // =========================================================
@@ -9580,6 +9581,7 @@ export default function ReflexTrainer() {
 </button>
         </div>
       </div>
+      <Analytics />
     </div>
   );
 }
