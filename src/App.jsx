@@ -9027,7 +9027,6 @@ const rawQuestionBank = [
   ];
 
 
-const REPORT_EMAIL = "aliakramqureshi@kemu.edu.pk";
 const SESSION_LENGTH = 10;
 const TIMER_SECONDS = 10;
 
@@ -9079,7 +9078,48 @@ const questionBank = rawQuestionBank.map((q, index) => {
     qid: `${modeBadge}-${paddedNumber}`,
   };
 });
+if (typeof window !== "undefined") {
+  window.findQuestionByQID = (qid) => {
+    const question = questionBank.find((q) => q.qid === qid);
 
+    if (!question) {
+      console.log("No question found for QID:", qid);
+      return null;
+    }
+
+    console.log(question);
+    return question;
+  };
+
+  window.searchQuestions = (text) => {
+    const query = text.toLowerCase();
+
+    const results = questionBank.filter((q) =>
+      [
+        q.qid,
+        q.mode,
+        q.topic,
+        q.vignette,
+        q.explanation,
+        ...q.answers,
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(query)
+    );
+
+    console.table(
+      results.map((q) => ({
+        qid: q.qid,
+        mode: q.mode,
+        topic: q.topic,
+        vignette: q.vignette.slice(0, 80),
+      }))
+    );
+
+    return results;
+  };
+}
 export default function ReflexTrainer() {
   const [gameStarted, setGameStarted] = useState(false);
   const [sessionComplete, setSessionComplete] = useState(false);
@@ -9195,29 +9235,6 @@ export default function ReflexTrainer() {
 
   const answeredCount = currentQIndex + (answered ? 1 : 0);
   const accuracy = Math.round((score / answeredCount) * 100) || 0;
-
-  const correctAnswerText = current ? current.answers[current.correct] : "";
-  const selectedAnswerText =
-    selectedAnswer === null ? "No answer / timed out" : shuffledAnswers[selectedAnswer];
-
-  const reportIssueHref = current
-    ? `mailto:${REPORT_EMAIL}?subject=${encodeURIComponent(
-        `Reflex Trainer issue: ${current.qid}`
-      )}&body=${encodeURIComponent(
-        [
-          `QID: ${current.qid}`,
-          `Mode: ${current.mode}`,
-          `Topic: ${current.topic}`,
-          "",
-          `Stem: ${current.vignette}`,
-          "",
-          `Selected answer: ${selectedAnswerText}`,
-          `Correct answer: ${correctAnswerText}`,
-          "",
-          "Issue:",
-        ].join("\n")
-      )}`
-    : "#";
 
   if (!gameStarted) {
     return (
@@ -9508,12 +9525,10 @@ export default function ReflexTrainer() {
                 {current.explanation}
               </p>
 
-              <a
-                href={reportIssueHref}
-                className="inline-block mt-3 text-xs md:text-sm font-semibold text-slate-600 hover:text-slate-900 underline"
-              >
-                Report issue with this question
-              </a>
+          <p className="mt-3 text-xs md:text-sm text-slate-500">
+  Found an issue? Send the QID to aliakramqureshi@kemu.edu.pk:{" "}
+  <span className="font-bold text-slate-700">{current.qid}</span>
+</p>
             </div>
           )}
         </div>
