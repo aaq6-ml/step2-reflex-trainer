@@ -9134,22 +9134,43 @@ export default function ReflexTrainer() {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [timerActive, setTimerActive] = useState(false);
+  const [usedQIDsByMode, setUsedQIDsByMode] = useState({});
 
   const generateNewSession = (modeOverride = selectedMode) => {
-    const modeQuestions = questionBank.filter((q) => q.mode === modeOverride);
-    const newQuestions = shuffleArray(modeQuestions).slice(0, SESSION_LENGTH);
+  const modeQuestions = questionBank.filter((q) => q.mode === modeOverride);
+  const usedQIDs = usedQIDsByMode[modeOverride] || [];
 
-    setSessionQuestions(newQuestions);
-    setCurrentQIndex(0);
-    setScore(0);
-    setStreak(0);
-    setAnswered(false);
-    setSelectedAnswer(null);
-    setShuffledAnswers([]);
-    setTimeLeft(TIMER_SECONDS);
-    setTimerActive(true);
-    setSessionComplete(false);
-  };
+  let availableQuestions = modeQuestions.filter(
+    (q) => !usedQIDs.includes(q.qid)
+  );
+
+  if (availableQuestions.length < SESSION_LENGTH) {
+    availableQuestions = modeQuestions;
+    setUsedQIDsByMode((prev) => ({
+      ...prev,
+      [modeOverride]: [],
+    }));
+  }
+
+  const newQuestions = shuffleArray(availableQuestions).slice(0, SESSION_LENGTH);
+  const newUsedQIDs = newQuestions.map((q) => q.qid);
+
+  setUsedQIDsByMode((prev) => ({
+    ...prev,
+    [modeOverride]: [...(prev[modeOverride] || []), ...newUsedQIDs],
+  }));
+
+  setSessionQuestions(newQuestions);
+  setCurrentQIndex(0);
+  setScore(0);
+  setStreak(0);
+  setAnswered(false);
+  setSelectedAnswer(null);
+  setShuffledAnswers([]);
+  setTimeLeft(TIMER_SECONDS);
+  setTimerActive(true);
+  setSessionComplete(false);
+};
 
   const startGame = () => {
     setGameStarted(true);
