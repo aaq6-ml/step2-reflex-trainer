@@ -9370,29 +9370,31 @@ export default function ReflexTrainer() {
               The goal is not just to get questions right, but to build faster recognition of clinical patterns under time pressure.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-  <button
-    onClick={() => generateNewSession(selectedMode)}
-    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-7 rounded-full transition"
-  >
-    Start New {selectedMode} Session
-  </button>
-
-  <button
-    onClick={resetToStart}
-    className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-7 rounded-full transition border border-white/20"
-  >
-    Back to Start
-  </button>
-
+            <div className="flex flex-col items-center gap-4">
   <a
     href="https://forms.gle/PJnuAbkF4WtV1un7A"
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-7 rounded-full transition text-center"
+    className="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-full transition text-center"
   >
-    Kindly give your feedback.
+    Give Feedback.
   </a>
+
+  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+    <button
+      onClick={() => generateNewSession(selectedMode)}
+      className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-7 rounded-full transition"
+    >
+      Start New {selectedMode} Session
+    </button>
+
+    <button
+      onClick={resetToStart}
+      className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-7 rounded-full transition border border-white/20"
+    >
+      Back to Start
+    </button>
+  </div>
 </div>
           </div>
         </div>
@@ -9557,9 +9559,19 @@ export default function ReflexTrainer() {
                 {current.explanation}
               </p>
 
-          <p className="mt-3 text-xs md:text-sm text-slate-500">
+         <p className="mt-3 text-xs md:text-sm text-slate-500">
   Found an issue? Send the QID to aliakramqureshi@kemu.edu.pk:{" "}
   <span className="font-bold text-slate-700">{current.qid}</span>
+  {" "}or give your{" "}
+  <a
+    href="https://forms.gle/PJnuAbkF4WtV1un7A"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-bold text-teal-700 underline"
+  >
+    feedback
+  </a>
+  .
 </p>
             </div>
           )}
