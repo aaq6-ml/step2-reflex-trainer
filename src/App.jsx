@@ -9371,20 +9371,29 @@ export default function ReflexTrainer() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={() => generateNewSession(selectedMode)}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-7 rounded-full transition"
-              >
-                Start New {selectedMode} Session
-              </button>
+  <button
+    onClick={() => generateNewSession(selectedMode)}
+    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-7 rounded-full transition"
+  >
+    Start New {selectedMode} Session
+  </button>
 
-              <button
-                onClick={resetToStart}
-                className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-7 rounded-full transition border border-white/20"
-              >
-                Back to Start
-              </button>
-            </div>
+  <button
+    onClick={resetToStart}
+    className="bg-white/10 hover:bg-white/20 text-white font-bold py-2.5 px-7 rounded-full transition border border-white/20"
+  >
+    Back to Start
+  </button>
+
+  <a
+    href="https://forms.gle/PJnuAbkF4WtV1un7A"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-7 rounded-full transition text-center"
+  >
+    Kindly give your feedback.
+  </a>
+</div>
           </div>
         </div>
       </div>
